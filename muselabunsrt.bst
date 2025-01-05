@@ -589,9 +589,9 @@ FUNCTION {format.in.ed.booktitle}
 }
 
 FUNCTION {empty.misc.check}
-{ author empty$ title empty$ howpublished empty$
+{ author empty$ title empty$ howpublished empty$ journal empty$
   month empty$ year empty$ note empty$
-  and and and and and
+  and and and and and and
   key empty$ not and
     { "all relevant fields are empty in " cite$ * warning$ }
     'skip$
@@ -966,7 +966,14 @@ FUNCTION {misc}
   title  "title"  required.argument
 %%%%
   output.bibitem
-  format.authors add.colon				% 2.00(5)
+  author empty$		% 2.00(5) - muselab
+    { journal empty$
+	{ "" }
+	{ format.journal add.colon }
+	if$
+    } 
+    { format.authors add.colon    }
+  if$
   title output
   howpublished output
   format.date output
