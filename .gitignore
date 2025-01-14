@@ -6,4 +6,6 @@
 *.blg
 *.aux
 *.synctex.gz
-muselab-sample.fdb_latexmk
+*.fdb_latexmk
+*.bbl
+*.dvi
