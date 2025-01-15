@@ -323,6 +323,9 @@ FUNCTION {add.colon}					% 2.00(5)
   if$
 }
 
+FUNCTION {format.journal}
+{ "{" journal * "}" * }
+
 FUNCTION {format.editors.inparen}			% 2.00(6)
 { editor empty$
     { "" }
