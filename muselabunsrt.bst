@@ -318,7 +318,7 @@ FUNCTION {format.authors}
 
 FUNCTION {add.colon}					% 2.00(5)
 { duplicate$ is.kanji
-    { "\：" * }						% 2.12(1)
+    { "\string: " * }						% 2.12(1)
     { ": " * }
   if$
 }
