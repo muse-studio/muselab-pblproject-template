@@ -49,7 +49,7 @@
 %\usepackage[deluxe]{otf}
 %\newcommand{\Imazato}{\CID{13780}里}
 %\newcommand{\Imazato}{\char"2F75F 里}
-\newcommand{\Imazato}{今里} %本来の漢字はどうがんばってもコンパイルエラーになるようなので，代用漢字を使うことにした．
+%\newcommand{\Imazato}{今里} %本来の漢字はどうがんばってもコンパイルエラーになるようなので，代用漢字を使うことにした．
 % ------------------------------------------
 
 
@@ -76,7 +76,7 @@
 \begin{document}
 
 
-\title{音楽の持つ世界観を魅せる映像空間の表現}
+\title{\input{author-title}} % 卒業論文のタイトルを書く
 
 %\etitle{How to Prepare Your Paper for IPSJ SIG Technical Report \\ (version 2018/10/29)}
 %SIGMUS/EC 予稿には入れるので，英文タイトルは考えておこう（情報学広場に掲載される英文タイトルがこれになる）
@@ -85,7 +85,7 @@
 %	3370 Azahori, Fukuchiyama-shi, Kyoto 620--0886, Japan}
 
 
-\author{32145010　\Imazato　歩夢}{IMAZATO Ayumu}{FUKU}[]
+\author{\input{author-name0}{\input{author-name-eng}}{FUKU}[]
 %\author{32045033　酒井　愛実}{Joho Taro}{FUKU}[32045033@fukuchiyama.ac.jp] %SIGMUS/EC 予稿には入れる
 % \author{橋田 光代}{Mitsuyo Hashida}{FUKU}[hashida-mitsuyo@fukuchiyama.ac.jp] %SIGMUS/EC 予稿には入れる
 
@@ -147,4 +147,3 @@
 
 
 
-\end{document}
