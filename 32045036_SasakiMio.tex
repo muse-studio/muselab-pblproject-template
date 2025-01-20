@@ -1,0 +1,681 @@
+% !TEX root = _main.tex
+%\title{旋律化されたことばの表現構造の分析}
+%\author{32045036　佐々木　美音}{SASAKI Mio}{FUKU}[]
+
+% ==========================================
+% ここから本文．あとは各自で
+% ==========================================
+
+%1
+\section{はじめに}
+人々は古来より，思いを様々な方法で伝えてきた．その方法の中でも，文字で伝えるということに着目したい．文字で伝える方法には，手紙など書いて伝える，口に出して言葉で伝える，歌で伝えるといった方法がある．\par
+本研究では，言葉で伝える，歌で伝えるという二つに着目したい．二つとも，「口に出して，言葉で伝える」ということは一致しているが，表現方法は異なる．\par
+この二つの表現方法は、どちらも「音」を通じて情報や感情を伝える手段として用いられる。しかし、発話は主に会話や朗読の場で情報伝達や感情表現を目的とするのに対し、歌は旋律やリズムを伴うことで芸術的要素を持ち、より感情やメッセージを強調する手段となる。このように、共通点がありつつも異なる性質を持つ発話と歌について、より詳細に分析する必要がある．\par
+本研究では，発話表現と歌の表現を，「音での表現」という観点から比較し，両者に違いがあるのかを考察していく．
+
+%皆さんは「言葉」というものをどのように表現しているだろうか．
+%共通の歌詞でも音高や音長、捉え方が異なれば楽曲の印象は大きく変化する
+%言葉には，発話する・書く・歌うなど，様々な表現方法がある．私は特に，音としての表現に着目をした．\par
+%音としての表現が言葉から歌へと変化するには，いくつかのプロセスがある．以下にその流れを示す．\par
+%\begin{enumerate}
+%\renewcommand{\labelenumi}{\arabic{enumi}).}
+%\item 言語としての発話がベース\\→通常の話し方（言葉表現）
+%\item 感情や意図を込める\\→イントネーションなど発音に影響（感情表現）
+%\item 発話に対する創意工夫\\→旋律とリズムに影響（音楽表現）
+%\end{enumerate}
+%まず，言語としての発話がベースの言葉表現，つまり通常で話しているような表現になる．そして，感情や意図を込めていくと発話に影響を及ぼし，感情表現になっていく．さらに発話に対する創意工夫がなされて旋律とリズムに影響を及ぼし音楽表現となっていく．\par
+%本研究ではこのような流れに着目をし，ある言語表現がどんな音楽表現へと展開しうるかを，多数の既存曲から傾向分析していく．\par
+
+
+
+%2
+\section{ことばと音の関係}
+
+%2.1
+\subsection{ことばと音の歴史}
+古来より，「うたう」という行為はなされていた．例えば，紀元前3000年頃に生まれたとされる古代エジプト文明では，既に歌手という存在がいることが確認されている\cite{eziputo}．また日本でも，三国志の魏志倭人伝に「歌舞」の記載があり，少なくとも3世紀末ごろには「うたう」という概念があったことがわかる\cite{gisiwazinden}．
+
+
+
+%2.2
+\subsection{先行研究}\label{2.2}
+%2.2.1
+\subsubsection{「メロディからの歌詞表現」に関しての研究}\label{2.2.1}
+メロディと歌詞の関係について，堤らの研究\cite{tutumi}，村尾らの研究\cite{ozisan}が挙げられる．\par
+%（日本語の音韻と旋律の関係について）
+%（おじさんの歌えない歌）
+堤らの研究では，メロディの音程と歌詞の音韻の音程との関係を調査・分析している．\par
+また，村尾らの研究では，60年代から90年代までの日本のポピュラーソングを，年代ごとのパターンの特徴を出し，中高年世代がどう歌うかを実験している．
+
+%2.2.2
+\subsubsection{詩句から歌唱へ ～ことばから創出する旋律表現の分析手法にむけての検討}\label{akanesan}
+本研究の直接的な先行研究として，塩見の研究\cite{sikukara}がある．この研究では，特定のフレーズがどのように歌われる傾向にあるかを，様々な観点から検証している．\par
+考察されていた点は以下の通りである．
+――――
+
+
+%2.3
+\subsection{本研究の狙い}
+\ref{2.2}で挙げたように，世の中にはことばと音に関しての研究が数多くある．しかし，ことばと歌そのものを比較した研究は少ない．\par
+また，塩見の研究\ref{sikukara}はことばと歌そのものを比較した研究であるが，秒数（絶対時間）に対応していない，単なる比較である点など，まだ分析の余地がある．
+本研究はこれらから着想を得，発話表現と歌の表現を，「音での表現」という観点から比較し，両者に違いがあるのかを考察していく．\par
+主な違いを図\ref{tigai}に示す．
+
+
+\begin{table*}[t]
+ \centering
+ %\begin{center}
+   \caption{先行研究との違い}
+  \begin{tabular}{|c|c|} \hline
+    先行研究 & 本研究 \\ \hline\hline
+    \begin{tabular}{c}
+    フレーズの選定・楽曲収集\\（あなたにあいたくて:157曲）
+    \end{tabular} & 
+    \begin{tabular}{c}
+    対象フレーズの拡張\\（ひかりのほう:187曲）
+    \end{tabular} \\ \hline
+    楽譜（MusicXML）の作成 &
+    \begin{tabular}{c}
+    情報の補完（BPMなど）\\追加したフレーズの楽譜作成
+    \end{tabular}\\ \hline
+    \begin{tabular}{c}
+    楽曲情報（タイトル・発売日など）の\\データベースの作成
+    \end{tabular}&
+    \begin{tabular}{c}
+    データベースの補完\\（歌唱者情報の追加など）
+    \end{tabular}\\ \hline
+    \begin{tabular}{c}
+    様々な軸でのプロット（matplotlib)
+    \end{tabular} & 
+    \begin{tabular}{c}
+    プロット方法の変更\\およびツールの作成 
+    \end{tabular}\\ \hline
+    プロットを目視で考察 &
+    \begin{tabular}{c}
+    分析
+    \end{tabular}\\ \hline
+  \end{tabular}
+ %\end{center}
+\label{tigai}
+\end{table*}
+
+%3
+\section{研究概要}
+
+%3.1
+\subsection{分析対象}\label{taisyou}
+本研究で分析対象となる，楽譜から抽出する音楽の要素を以下に挙げる．\par
+\begin{musequote}
+\begin{itemize}
+\item 楽曲名：どの楽曲か＋同曲内の出現回数
+\item BPM：秒数・累積秒に必要
+\item 拍子：分析に必要
+\item 調号：分析に必要
+\item 音符の種類：音符か休符か
+\item MIDI：音の高さ
+\item 拍数・累積拍：相対時間の基準
+\item オフセット：曲の開始からの拍の長さ
+\item 秒数・累積秒：絶対時間の基準
+\item 歌詞：分析に必要
+\end{itemize}
+\end{musequote}
+また，楽譜データとは別に楽曲のメタデータを作成した．内容は以下の通りである．\par
+\begin{musequote}
+\begin{itemize}
+\item アーティスト・作詞・作編曲者：同じフレーズを複数回使用しているアーティストはいるのか
+\item 歌い手：男女，グループかどうか
+\item 発売日：発売年ごとの傾向の分析
+\end{itemize}
+\end{musequote}
+抽出した楽譜のデータとメタデータ，それぞれにIDを付けることによって，連動して分析を行うことができる．
+
+%3.2
+\subsection{楽譜データ}\label{gakuhu}
+音楽的要素を抽出するため，まず楽曲の楽譜データの作成を行う．手順を以下に示す．楽譜データの形式にはMusicXML\cite{musicxml}を使用した．
+
+%3.2.1
+\subsubsection{歌詞の選定}
+まず，研究対象になる歌詞の選定から行う．選定は，\ref{akanesan}で記述されている基準で行う．以下にその基準を記述する．\par
+\begin{enumerate}
+\begingroup
+\renewcommand{\labelenumi}{\arabic{enumi})}
+%\renewcommand{\labelenumii}{\alph{enumii}).}
+\item ひとつの単語だけでなく，名詞や助詞，動詞が含まれること．（複数の単語を組み合わせたフレーズを用いることで，拍子の変化や音の高さの変化に特徴が現れやすいと思われるためである）
+\item フレーズから想起される文脈がある程度一般的であること．
+\item 日本の楽曲で少なくとも100 曲は歌われていること． 
+\endgroup
+\end{enumerate}
+本研究では，これらに合致した楽曲を分析対象とする．
+
+%3.2.2
+\subsubsection{対象楽曲}\label{3.2.2}
+\ref{akanesan}では，この基準に一致した詩句，「あなたにあいたくて」を含む楽曲が 157 曲見つかっていた．\par
+また今回新たに，上記の基準を参考に詩句の選定を行った．結果，「ひかりのほう」という詩句が基準に一致した．表記ゆれの内訳を以下に示す．\par
+\begin{itemize}
+\item 「光の方」…151曲
+\item 「光のほう」…25曲
+\item 「ひかりの方」…4曲
+\item 「ひかり（ヒカリ）のほう」…5曲
+\end{itemize}
+上記の通り，「ひかりのほう」の詩句が含まれる楽曲は，2024年10月15日現在で合計 185 曲ある．以上の歌詞の選定により，「あなたにあいたくて」の含まれる楽曲157 曲，「ひかりのほう」の含まれる楽曲185曲を，以下の作成方法で収集する．
+
+\subsubsection{収集方法}
+本研究では音楽表現を分析するため，各楽曲の旋律情報が必要である．そのため，\ref{3.2.2}で示した分析対象の各楽曲のフレーズが書かれた楽譜を入手する必要がある．\par
+入手方法として以下が挙げられる．
+\begin{musequote}
+\noindent
+\textbf{出版されている楽譜を入手する}\par
+入手した後，楽譜制作ソフトを用い，当該フレーズ箇所の電子楽譜データを作成する．\par
+\noindent
+\textbf{音源のみ入手できた楽曲}\par
+音源を聴きながら 楽譜制作ソフトを用い，当該フレーズ箇所の電子楽譜データを作成する．\par
+\noindent
+\textbf{どちらもできなかった楽曲}\par
+楽譜データを作成することが不可能なため，本研究では対象外とする．\par
+\end{musequote}
+
+以上の手順を用いて楽譜データを作成する．\par
+また，本研究で使用する各フレーズの入手について，以下に記す．
+
+\begin{musequote}
+\noindent
+\textbf{「あなたにあいたくて」フレーズについて}\par
+本研究では，先行研究で使用されていた「あなたにあいたくて」フレーズ群と，追加で入手できた4曲7フレーズを合わせ，合計132曲分176フレーズを本研究の分析対象とする．\par
+\noindent
+\textbf{「ひかりのほう」フレーズについて}\par
+全185曲中，18曲は音源が見つけられず，楽譜を作成することができなかった．また，音源は見つかったが楽譜に起こすのが難しかったものが4曲，作成途中が32曲ある．現在作成できている楽譜は131曲である．\par
+\end{musequote}
+
+%3.3
+\subsection{発話イントネーション}\label{hatuwa}
+\ref{2.2.1}で挙げた堤らの先行研究では，メロディの音程と歌詞の音韻の音程との関係を調査・分析している．その際，歌詞の音韻の音程の判定に使用していたのがアクセント辞書である．
+本研究では，歌詞の音韻判定に用いるツールを，アクセント辞書からVOICEPEAK\cite{voicepeak}に変更し，発話のイントネーションを取得する．以下の章で詳しく説明する．
+
+%3.3.1
+\subsubsection{ツール}
+VOICEPEAK\cite{voicepeak}とは、株式会社 AHS によって開発・提供されている TTS(text to speech)の合成音声生成ソフトウェアであり，最新のAI音声合成技術を用い入力文字を読み上げるソフトである．\par
+VOICEPAK上で合成音声を作成する際，ユーザ側で任意にイントネーションや感情表現を変更することができるが，図\ref{voicepeak}のように，VOICEPEAKはGUI操作の送付ととなっており，ユーザ側で数値として見ることが出来ない．そこで，VOICEPEAKで合成音声作成の際に作るプロジェクトファイルを解析し，発話のイントネーションを取得していく．
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/voicepeak.png}
+\caption{VOICEPEAKの操作画面}
+\label{voicepeak}
+\end{figure}
+
+%3.3.2
+\subsubsection{割合を求める}\label{wariai}
+割合を求めるために，語句のイントネーションを求める．
+VOICEPEAKで“あなたにあいたくて”“ひかりのほう”の合成音声のプロジェクトファイルを作成した．それをテキストエディタのVisual Studio Codeで開き，成形すると，終端にNull文字のあるJSONファイルとなる．\par
+実際に成形した後のコードの一部が図\ref{json_seikei}である．この図は「あなたにあいたくて」と言わせたときのJSONファイル「な」の部分で，各項目で合成音声の声音を制御している．\par
+イントネーションに関わる部分は，図\ref{json_seikei}の“i”である．図\ref{hikui}はVOICEPEAK上でイントネーションの値を最も低くしたもの，図\ref{takai}はVOICEPEAK上でイントネーションの値を最も高くしたものである．図\ref{hikui}の“i”を見てみると，“-1.55575704574585”，図\ref{takai}の“i”を見てみると，“4.44424295425415”となっており，絶対値同士を足すと6となる．他の値についても同様であり，VOICEPEAKにおけるイントネーションの設定は，幅6の間で設定されているとわかる．
+
+\begin{figure}[t]
+
+\begin{minipage}[t]{0.49\columnwidth}
+\begin{center}
+\includegraphics[width=30mm]{fig/intone_hidari.png} % 図の大きさに合わせてscaleやwidth=\linewidthで調整
+\subcaption{全てのイントネーションを\\低くしたもの}
+\label{hikui}
+\end{center}
+\end{minipage}
+
+\begin{minipage}[t]{0.49\columnwidth}
+\begin{center}
+\includegraphics[width=30mm]{fig/intone_migi.png}
+\subcaption{全てのイントネーションを\\高くしたもの}
+\label{takai}
+\end{center}
+\end{minipage}
+
+\caption{VOICEPEAKのプロジェクトファイルの中身（横並びにしたい）}
+\label{json_seikei}
+\end{figure}
+
+解析内容をもとに，それぞれのフレーズのイントネーションの最大値・最小値を100\%,0\%とし，割合を出した．割合は\ref{intone_data}に示す．\par
+分析では，このイントネーションの値をもとに，フレーズと発話イントネーションとの一致度も調べていく．
+
+
+%3.4
+\subsection{データセットの作成}\label{3.4}
+\ref{gakuhu}，\ref{hatuwa}で作成した楽譜データ，発話イントネーションのデータを元に，データセットを作成する．
+
+%3.4.1
+\subsubsection{楽譜データセット}
+MusicXMLを Python 上で読み込む際に，music21\cite{music21}というライブラリを用いて変換を行い，そのデータを CSVデータとして書き出した．\par
+変換のフローチャートは図\ref{m_to_l}の通りである．また，実際に変換後の出力例を図\ref{m_database}に示す．
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/musicxml_to_csv.png}
+\caption{MusicXMLからCSVファイルへの変換}
+\label{m_to_l}
+\end{figure}
+%\vspace{5mm}
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/music_database.png}
+\caption{楽曲情報データベースの一部}
+\label{m_database}
+\end{figure}
+
+
+%3.4.2
+\subsubsection{発話イントネーションデータセット}\label{intone_data}
+\ref{wariai}で取得したデータをCSVに出力した．結果を図\ref{intone_henkan}に示す．
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/intone_henkan.png}
+\caption{“あなたにあいたくて”の発話イントネーションの割合}
+\label{intone_henkan}
+\end{figure}
+
+%3.4.3
+\subsubsection{メタ情報セット}
+\ref{taisyou}で記載したメタデータセットの情報取得は，アーティストの公式サイトや歌詞掲載サイトなどを閲覧し，手作業でExcelに入力した．また，歌い手の情報は，実際に楽曲を聴き，該当フレーズを歌っている人の性別・人数を確認し，Excelに入力した．\par
+できたデータを図\ref{meta}に示す．
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/meta_dataset.png}
+\caption{メタ情報セットの一部}
+\label{meta}
+\end{figure}
+
+%3.5
+\subsection{可視化ツール}
+\ref{3.4}で作成したデータセットを用い，可視化ツールの作成を行う．
+
+%3.5.1
+\subsubsection{作り方}\label{p_d}
+プログラム作成はPythonで行い，グラフの描写はPlotly\cite{plotly}，ツールの作成はDash\cite{dash}を用いて行った．\par
+Plotlyを使用することにより，以下の利点が挙げられる．
+\begin{itemize}
+\item マウスオーバーで情報が表示される
+\item ズームやパンが可能
+\item 表示させるデータを選ぶことができる
+\end{itemize}
+といった利点がある．
+また，Dashの利点として，
+\begin{itemize}
+\item Plotlyとの相性が良い
+\item PythonのコードのみでWebアプリを作成できる
+\item 表示させるデータを選ぶことができる
+\end{itemize}
+などが挙げられる．
+
+
+%3.5.2
+\subsubsection{先行研究との違い}
+
+本研究の直接的な先行研究は，\ref{akanesan}になる．\par
+\ref{akanesan}では，データのプロットを図\ref{akane}のようにプロットしていた．また，見たいデータごとにプログラムを分けて制作し，ひとつづつmatplotlibで出力していた\cite{matplotlib}．\par
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/akanesann.png}
+\caption{旧セット}
+\label{akane}
+\end{figure}
+
+本研究では，\ref{p_d}に記載した通り，先行研究でのmatplotlibから変更し，PlotlyとDashを使用した．これにより，メインプログラムを起動するのみでプロットを行うことができる．また，
+私のはこれ\ref{onko_haku}，拡大したものはこれ\ref{kakudai}，ページはこれ\ref{page}である．
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/page_system.png}
+\caption{プログラム本体のシステム図}
+\label{page_system}
+\end{figure}
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/page.png}
+\caption{プロットを見るページ}
+\label{page}
+\end{figure}
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/onko_haku.png}
+\caption{グラフのセット（全体）}
+\label{onko_haku}
+\end{figure}
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/onko_haku_koma.png}
+\caption{グラフのセット（拡大）}
+\label{kakudai}
+\end{figure}
+
+
+
+
+
+
+
+
+
+%4
+\section{“あなたにあいたくて”結果}
+
+%4.1
+\subsection{秒数のプロット}
+これ\ref{a_byou}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/onko_byou.png}
+\caption{秒数のプロット（あ）}
+\label{a_byou}
+\end{figure}
+
+%4.2
+\subsection{タイミングとイントネーション}
+%4.2.1
+\subsubsection{発話タイミング}
+発話タイミングと歌とのずれを，各単音の箱ひげ図に表したのがこれ\ref{a_ha_tai}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/hakohige_tai.png}
+\caption{発話タイミングと歌のずれ（あ）}
+\label{a_ha_tai}
+\end{figure}
+
+%4.2.2
+\subsubsection{イントネーション}
+発話イントネーションと歌とのずれを，各単音の箱ひげ図に表したのがこれ\ref{a_ha_into}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/hakohige_into.png}
+\caption{発話イントネーションと歌のずれ（あ）}
+\label{a_ha_into}
+\end{figure}
+
+%4.2.3
+\subsubsection{タイミングとイントネーションの比較}
+各曲のタイミングとイントネーションのずれを，散布図で表した．のがこれ\ref{a_bunpu}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/bunpu.png}
+\caption{タイミングとイントネーションのずれ（あ）}
+\label{a_bunpu}
+\end{figure}
+
+
+%4.3
+\subsection{歌手ごとの傾向}
+次に，歌手の違いごとの傾向について記していく．
+全体の傾向はこれ\ref{a_all}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/seibetu.png}
+\caption{性別ごとに色分けしたもの（あ）}
+\label{a_all}
+\end{figure}
+
+%4.3.1
+\subsubsection{男女別・単体or混合の割合}
+各種割合はこれ\ref{a_sebetu_wari}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/seibetu_wariai.png}
+\caption{性別ごとに割合をだしたもの（あ）}
+\label{a_seibetu_wari}
+\end{figure}
+
+%4.3.2
+\subsubsection{男}
+傾向はこれ\ref{a_otoko}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/seibetu_otoko.png}
+\caption{男性が歌っているものを色分けしたもの（あ）}
+\label{a_otoko}
+\end{figure}
+
+%4.3.3
+\subsubsection{女}
+全体の傾向はこれ\ref{a_onna}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/seibetu_onna.png}
+\caption{女性が歌っているものを色分けしたもの（あ）}
+\label{a_onna}
+\end{figure}
+
+
+%4.3.4
+\subsubsection{混合}
+デュエットなど，男女混合で歌っているものはこれ\ref{a_kongo}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/seibetu_kongo.png}
+\caption{デュエット・男女混合を色分けしたもの（あ）}
+\label{a_kongo}
+\end{figure}
+
+
+%4.4
+\subsection{年代別の割合}
+全体のグラフはこれ\ref{a_nendai_wari}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/nendai_wariai.png}
+\caption{年代ごとの割合（あ）}
+\label{a_nendai_wari}
+\end{figure}
+
+%4.4.1
+\subsubsection{1970年代のグラフ}
+1970年代のグラフはこれ\ref{a_nendai_1970}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/ne_1970.png}
+\caption{1970年の割合（あ）}
+\label{a_nendai_1970}
+\end{figure}
+
+%4.4.2
+\subsubsection{1980年代のグラフ}
+1980年代のグラフはこれ\ref{a_nendai_1980}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/ne_1980.png}
+\caption{1980年の割合（あ）}
+\label{a_nendai_1980}
+\end{figure}
+
+%4.4.3
+\subsubsection{1990年代のグラフ}
+1990年代のグラフはこれ\ref{a_nendai_1970}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/ne_1990.png}
+\caption{1990年の割合（あ）}
+\label{a_nendai_1990}
+\end{figure}
+
+%4.4.4
+\subsubsection{2000年代のグラフ}
+2000年代のグラフはこれ\ref{a_nendai_2000}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/ne_2000.png}
+\caption{2000年の割合（あ）}
+\label{a_nendai_2000}
+\end{figure}
+
+%4.4.1
+\subsubsection{2010年代のグラフ}
+2010年代のグラフはこれ\ref{a_nendai_2010}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/ne_2010.png}
+\caption{2010年の割合（あ）}
+\label{a_nendai_2010}
+\end{figure}
+
+%4.4.1
+\subsubsection{2020年代のグラフ}
+2020年代のグラフはこれ\ref{a_nendai_2020}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/anata/ne_2020.png}
+\caption{2020年の割合（あ）}
+\label{a_nendai_2020}
+\end{figure}
+
+
+
+
+
+
+
+%5
+\section{“ひかりのほう”結果}
+
+\subsection{秒数のプロット}
+これ\ref{h_byou}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/onko_byou.png}
+\caption{秒数のプロット（ひ）}
+\label{h_byou}
+\end{figure}
+
+\subsection{タイミングとイントネーション}
+%4.1
+\subsubsection{発話タイミング}
+発話タイミングと歌とのずれを，各単音の箱ひげ図に表したのがこれ\ref{h_ha_tai}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/hakohige_tai.png}
+\caption{発話タイミングと歌のずれ（ひ）}
+\label{h_ha_tai}
+\end{figure}
+
+%4.2
+\subsubsection{イントネーション}
+発話イントネーションと歌とのずれを，各単音の箱ひげ図に表したのがこれ\ref{h_ha_into}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/hakohige_into.png}
+\caption{発話イントネーションと歌のずれ（ひ）}
+\label{h_ha_into}
+\end{figure}
+
+%4.3
+\subsubsection{タイミングとイントネーションの比較}
+各曲のタイミングとイントネーションのずれを，散布図で表した．のがこれ\ref{h_bunpu}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/bunpu.png}
+\caption{タイミングとイントネーションのずれ（ひ）}
+\label{h_bunpu}
+\end{figure}
+
+
+%4.3
+\subsection{歌手ごとの傾向}
+次に，歌手の違いごとの傾向について記していく．
+全体の傾向はこれ\ref{h_all}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/seibetu.png}
+\caption{性別ごとに色分けしたもの（ひ）}
+\label{h_all}
+\end{figure}
+
+%4.3.3
+\subsubsection{男女別・単体or混合の割合}
+各種割合はこれ\ref{h_sebetu_wari}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/seibetu_wariai.png}
+\caption{性別ごとに割合をだしたもの（ひ）}
+\label{h_seibetu_wari}
+\end{figure}
+
+%4.3.1
+\subsubsection{男}
+傾向はこれ\ref{h_otoko}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/seibetu_otoko.png}
+\caption{男性が歌っているものを色分けしたもの（ひ）}
+\label{h_otoko}
+\end{figure}
+
+%4.3.2
+\subsubsection{女}
+全体の傾向はこれ\ref{h_onna}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/seibetu_onna.png}
+\caption{女性が歌っているものを色分けしたもの（ひ）}
+\label{h_onna}
+\end{figure}
+
+
+%4.3.3
+\subsubsection{混合}
+デュエットなど，男女混合で歌っているものはこれ\ref{h_kongo}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/seibetu_kongo.png}
+\caption{デュエット・男女混合を色分けしたもの（ひ）}
+\label{h_kongo}
+\end{figure}
+
+
+%4.4
+\subsection{年代別の割合}
+全体のグラフはこれ\ref{h_nendai_wari}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/nendai_wariai.png}
+\caption{年代ごとの割合（ひ）}
+\label{h_nendai_wari}
+\end{figure}
+
+
+\subsubsection{2000年代のグラフ}
+2000年代のグラフはこれ\ref{h_nendai_2000}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/ne_2000.png}
+\caption{2000年の割合（ひ）}
+\label{h_nendai_2000}
+\end{figure}
+
+\subsubsection{2010年代のグラフ}
+2010年代のグラフはこれ\ref{h_nendai_2010}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/ne_2010.png}
+\caption{2010年の割合（ひ）}
+\label{h_nendai_2010}
+\end{figure}
+
+\subsubsection{2020年代のグラフ}
+2020年代のグラフはこれ\ref{h_nendai_2020}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{fig/hikari/ne_2020.png}
+\caption{2020年の割合（ひ）}
+\label{h_nendai_2020}
+\end{figure}
+
+
+%6
+\section{考察}
+
+
+
+%7
+\section{結論}
+
+%8
+\section{謝辞}
+
