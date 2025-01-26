@@ -10,3 +10,4 @@
 *.bbl
 *.dvi
 .DS_Store
+*.synctex(busy)
