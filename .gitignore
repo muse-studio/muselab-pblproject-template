@@ -10,4 +10,6 @@
 *.bbl
 *.dvi
 .DS_Store
-_main 3.synctex(busy)
+2023/*
+unused/*
+_main*.synctex(busy)
