@@ -11,3 +11,5 @@
 *.dvi
 .DS_Store
 *.synctex(busy)
+2023/*
+unused/*
