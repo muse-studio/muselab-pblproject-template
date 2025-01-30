@@ -1,77 +1,64 @@
 % !TEX root = _main.tex
-
+\onecolumn % 1段組にする
+\appendix
 \section{NEWS歌詞データ}
 \label{sec:news-kashi}
-
 本研究の分析に際し，収集する必要のあるデータは「曲名」「発売日」「歌詞」「グループ人数」の４つである．
 今回分析対象としたNEWS楽曲は，歌ネット\cite{utanet}に基づいて収集した266曲(2024/11/13現在)である．
 以下に歌詞データを示す．
 
-\newpage % <- 新規ページにした方が見やすければ入れる
+% \includepdf[nup=2x2,pages=1-4, scale=0.7 ]{fig/NEWS_all_lyrics.pdf}
+% \endgroup
 
-%begin{figure*}[h!]  「figure」の後ろにアスタリスク「*」をつけると１段ぶち抜きにできます
-\begin{figure*}[tb]
+
+\begin{figure}[ht]
 	\centering
-	\includegraphics[width=\hsize,page=1]{fig/NEWS_all_lyrics.pdf}
-	\caption{対象としたNEWS楽曲一覧}
-	\label{fig:news-all-lyrics1}
-\end{figure*}
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,page=1]{fig/NEWS_all_lyrics.pdf}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,page=2]{fig/NEWS_all_lyrics.pdf}
+	\end{minipage}
+\end{figure}
 
-\begin{figure*}[tb]
+
+\begin{figure}[ht]
 	\centering
-	\includegraphics[width=\hsize,page=2]{fig/NEWS_all_lyrics.pdf}
-	\caption{対象としたNEWS楽曲一覧}
-	\label{fig:news-all-lyrics2}
-\end{figure*}
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,page=3]{fig/NEWS_all_lyrics.pdf}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,page=4]{fig/NEWS_all_lyrics.pdf}
+	\end{minipage}
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,page=5]{fig/NEWS_all_lyrics.pdf}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,page=6]{fig/NEWS_all_lyrics.pdf}
+	\end{minipage}
+\end{figure}
 
-\begin{figure*}[tb]
-	\centering
-	\includegraphics[width=\hsize,page=3]{fig/NEWS_all_lyrics.pdf}
-	\caption{対象としたNEWS楽曲一覧}
-	\label{fig:news-all-lyrics3}
-\end{figure*}
-
-\begin{figure*}[tb]
-	\centering
-	\includegraphics[width=\hsize,page=4]{fig/NEWS_all_lyrics.pdf}
-	\caption{対象としたNEWS楽曲一覧}
-	\label{fig:news-all-lyrics4}
-\end{figure*}
-
-\begin{figure*}[tb]
-	\centering
-	\includegraphics[width=\hsize,page=5]{fig/NEWS_all_lyrics.pdf}
-	\caption{対象としたNEWS楽曲一覧}
-	\label{fig:news-all-lyrics5}
-\end{figure*}
-
-\begin{figure*}[tb]
-	\centering
-	\includegraphics[width=\hsize,page=6]{fig/NEWS_all_lyrics.pdf}
-	\caption{対象としたNEWS楽曲一覧}
-	\label{fig:news-all-lyrics6}
-\end{figure*}
-
-\begin{figure*}[tb]
-	\centering
-	\includegraphics[width=\hsize,page=7]{fig/NEWS_all_lyrics.pdf}
-	\caption{対象としたNEWS楽曲一覧}
-	\label{fig:news-all-lyrics7}
-\end{figure*}
-
-\begin{figure*}[tb]
-	\centering
-	\includegraphics[width=\hsize,page=8]{fig/NEWS_all_lyrics.pdf}
-	\caption{対象としたNEWS楽曲一覧}
-	\label{fig:news-all-lyrics8}
-\end{figure*}
-
-
-
-
-
-
-
+\clearpage
+\begin{figure}[ht]
+	\centering	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,page=7]{fig/NEWS_all_lyrics.pdf}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,page=8]{fig/NEWS_all_lyrics.pdf}
+	\end{minipage}
+\end{figure}
 
 
 
@@ -85,113 +72,113 @@
 また，割合に関しては小数点以下3桁で丸め込んでいる．
 
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=1]{fig/kaisu-daimei.pdf}
 	\caption{代名詞の使用回数}
 	\label{fig:kaisu-daimei}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=1]{fig/kaisu-dou.pdf}
 	\caption{動詞の使用回数}
 	\label{fig:kaisu-dou1}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=2]{fig/kaisu-dou.pdf}
 	\caption{動詞の使用回数}
 	\label{fig:kaisu-dou2}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=3]{fig/kaisu-dou.pdf}
 	\caption{動詞の使用回数}
 	\label{fig:kaisu-dou3}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=4]{fig/kaisu-dou.pdf}
 	\caption{動詞の使用回数}
 	\label{fig:kaisu-dou4}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=1]{fig/kaisu-keiyo.pdf}
 	\caption{形容詞の使用回数}
 	\label{fig:kaisu-keiyo1}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=2]{fig/kaisu-keiyo.pdf}
 	\caption{形容詞の使用回数}
 	\label{fig:kaisu-keiyo2}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=1]{fig/kaisu-fuku.pdf}
 	\caption{副詞の使用回数}
 	\label{fig:kaisu-fuku1}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=2]{fig/kaisu-fuku.pdf}
 	\caption{副詞の使用回数}
 	\label{fig:kaisu-fuku2}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=3]{fig/kaisu-fuku.pdf}
 	\caption{副詞の使用回数}
 	\label{fig:kaisu-fuku3}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=4]{fig/kaisu-fuku.pdf}
 	\caption{副詞の使用回数}
 	\label{fig:kaisu-fuku4}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=1]{fig/kaisu-mei.pdf}
 	\caption{名詞の使用回数}
 	\label{fig:kaisu-mei1}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=2]{fig/kaisu-mei.pdf}
 	\caption{名詞の使用回数}
 	\label{fig:kaisu-mei2}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=3]{fig/kaisu-mei.pdf}
 	\caption{名詞の使用回数}
 	\label{fig:kaisu-mei3}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=4]{fig/kaisu-mei.pdf}
 	\caption{名詞の使用回数}
 	\label{fig:kaisu-mei4}
-\end{figure*}
+\end{figure}
 
 
-
+\clearpage
 \section{品詞別使用曲数}
 \label{sec:kyokusu-hinshi}
 
@@ -200,110 +187,110 @@
 
 また，割合に関しては小数点以下3桁で丸め込んでいる．
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=1]{fig/kyokusu-daimei.pdf}
 	\caption{代名詞の使用曲数}
 	\label{fig:kyokusu-daimei}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=1]{fig/kyokusu-dou.pdf}
 	\caption{動詞の使用曲数}
 	\label{fig:kyokusu-dou1}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=2]{fig/kyokusu-dou.pdf}
 	\caption{動詞の使用曲数}
 	\label{fig:kyokusu-dou2}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=3]{fig/kyokusu-dou.pdf}
 	\caption{動詞の使用曲数}
 	\label{fig:kyokusu-dou3}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=4]{fig/kyokusu-dou.pdf}
 	\caption{動詞の使用曲数}
 	\label{fig:kyokusu-dou4}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=1]{fig/kyokusu-keiyo.pdf}
 	\caption{形容詞の使用曲数}
 	\label{fig:kyokusu-keiyo1}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=2]{fig/kyokusu-keiyo.pdf}
 	\caption{形容詞の使用曲数}
 	\label{fig:kyokusu-keiyo2}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=1]{fig/kyokusu-fuku.pdf}
 	\caption{副詞の使用曲数}
 	\label{fig:kyokusu-fuku1}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=2]{fig/kyokusu-fuku.pdf}
 	\caption{副詞の使用曲数}
 	\label{fig:kyokusu-fuku2}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=3]{fig/kyokusu-fuku.pdf}
 	\caption{副詞の使用曲数}
 	\label{fig:kyokusu-fuku3}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=4]{fig/kyokusu-fuku.pdf}
 	\caption{副詞の使用曲数}
 	\label{fig:kyokusu-fuku4}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=1]{fig/kyokusu-mei.pdf}
 	\caption{名詞の使用曲数}
 	\label{fig:kyokusu-mei1}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=2]{fig/kyokusu-mei.pdf}
 	\caption{名詞の使用曲数}
 	\label{fig:kyokusu-mei2}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=3]{fig/kyokusu-mei.pdf}
 	\caption{名詞の使用曲数}
 	\label{fig:kyokusu-mei3}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\hsize,page=4]{fig/kyokusu-mei.pdf}
 	\caption{名詞の使用曲数}
 	\label{fig:kyokusu-mei4}
-\end{figure*}
+\end{figure}
 
 
 
