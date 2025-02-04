@@ -1,5 +1,6 @@
 % !TEX root = _yoko.tex
 
+\def\sectionmargin{\vspace{7pt}}
 % ==========================================
 % プロジェクト予稿（1P）の本文
 % ==========================================
@@ -7,79 +8,123 @@
 \section{はじめに}
 
 筆者は 10 年来「NEWS」というアイドルグループ
-を応援し続けており，彼らを応援している中で
-「NEWS は背中を押してくれる楽曲が多い」という
+を応援し続けており，%彼らを応援している中で
+「NEWS は背中を押してくれる楽曲が多い\cite{NEWS_Chill}」という
 声や，メンバーが「エモーショナルさが NEWS の魅
-力になってきている」と発言を聞いていた．
-そこでNEWS 楽曲の歌詞の特徴に着目し，歌詞傾向につい
-て考察を行い楽曲のどういう点から「エモーショナルさ」
-や「背中を押された」と感じるのか分析することを目的としている．
+力になってきている」と\red{いう}発言を聞いて\red{き}た．
+\red{本研究では，特に}NEWS楽曲の歌詞\cut{の特徴}に着目し，%歌詞傾向について考察を行い
+\red{彼らの22年間の活動を経て歌われてきた}楽曲の\red{どのような}点から「エモーショナルさ」
+や「背中を押された」\red{が感じられる}のか\red{を明らかにする}．
 
-
+\sectionmargin
 \section{対象楽曲とデータ形成}
-本研究の分析に際し，収集する必要のあるデータは「曲
-名」「発売日」「歌詞」「グループ人数」の４つである．今回
-分析対象とした NEWS 楽曲は，歌ネット \cite{utanet}に基づいて収
-集した 266 曲 (2024/11/13 現在) である．
+%今回分析対象とした NEWS楽曲は，
+歌ネット \cite{utanet}に\red{歌詞が収録されているNEWS楽曲}266曲
+\red{（2024年11月13日時点）を分析対象とする}．
+\red{楽曲ごとに，曲名，発売日，すべての歌詞を取得し，発表当時にメンバーとして在籍していたグループ人数別に
+	分割したテキストデータを用意した．
+}
 
-作成した歌詞データに対してKHcoder\cite{khcoder}を使用し，分析を進めるためのデータ形成を行った．
-品詞ごとに集計し，回数とそれに対応する割合を求めている．
-そしてリフレインに考慮し出現回数と使用曲数の２種類を求めた．
+\red{この歌詞データに基づいて，}
+\khcoder\cite{khcoder}を\red{用いて，歌詞を}%使用し，分析を進めるためのデータ形成を行った．
+品詞ごとに集計し，\red{出現頻度と，楽曲群における}割合を\red{算出した}．
+\red{歌詞の繰り返し（}リフレイン\red{）}に考慮\red{するため，出現頻度は}
+「\kaisu 」と「\kyokusu 」の２種類\red{で比較する}．
 
-\section{対象楽曲とデータ形成}
+\sectionmargin
+\section{単語単位の使用変遷}
+\red{
+	まずはNEWSの活動全体を通じての歌詞傾向について概観した．
+	本稿では，NEWS楽曲において使用頻度の高かった名詞「夢」を例に取り上げる（図\ref{fig:yume}）．
+	＜この図をどう見たらよいのか説明せよ（この予稿しか読まない人のため）＞XXXXXXということが見て取れる．
+	また，「夢」という単語には＊＊＊＊，＊＊＊＊，＊＊＊＊の意味がある．
+	歌詞の文脈から「夢」に込められた意味を分類し，グループ時代別に比較すると，*******ということがわかった
+	（図\ref{fig:yume-ninzu}）．
+}
 
-2章で作成したデータをもとに各品詞の分析を行った．ここでは名詞の「夢」を例に取り上げる．
-形成したデータをもとに「夢」の時代別使用頻度推移を出力した（図1）．
 
-	\begin{figure}[b]
-		\centering
-		\includegraphics[width=\hsize]{fig/meishi-yume.png}
-		%\subcaption{「夢」}
-		\label{fig:yume}
-\caption{「夢」の時代別使用頻度推移}
-	\end{figure}
+\sectionmargin
 
-また，辞書での意味\cite{yume}を参考に単語をどのような意味で使用したのかについて人数ごとの比較グラフを出力した（図2）
+% 「キーワード」が意味するものの誤解を避ける ===================
+% KHCoderでの品詞別分析で，単語別に細かく追いかけてることから，「キーワード」は品詞分析で特別に取り上げた単語等を
+% 指しているようにも読める．理緒さんが意図しているのは１章にも書いた\senaka と\emotional だけど，混同しやすいので
+% 面倒でも\senaka と\emotional という言葉を使った方がよさげ
+\section{\red{\senaka らしさ，\emotional らしさの分析}}
+\sectionmargin
 
-\begin{figure}[tb]
-		\centering
-		\includegraphics[width=\hsize]{fig/yume-ninzu.png}
-		%\subcaption{「夢」}
-		\label{fig:yume-ninzu}
-\caption{「夢」の時代別使用意味比較}
-	\end{figure}
 
-\section{キーワードごとの分析}
-NEWSにおいて「背中を押す」と「エモーショナルさ」をキーワードとして設定し，それに対応する楽曲をサンプルとして分析を行った．
-以下は「背中を押す」NEWS楽曲をサンプルにし名詞の頻出単語上位10個を時系列累積グラフとして出力したものである（図３）．
+%NEWSにおいて\senaka と\emotional をキーワードとして設定し，それに対応する楽曲をサンプルとして分析を行った．
+\red{
+	（具体的に何をどうやって調べたのかを提示すべし．以下は憶測で書いてるので正せ）
+	%
+	収集した楽曲のうち，\senaka \emotional とされるNEWS楽曲をそれぞれ抽出し，両楽曲群における名詞の出現頻度を調べた．
+}
 
-\begin{table}[tb]
-	\centering
-	\caption{選曲した35曲の名詞出現回数上位10単語}
-	\label{tab:news-senaka}
-	\begin{tabular}{cc|cc}
-		\hline
-		単語 & 出現回数 & 単語 & 出現回数 \\ \hline
-		夢  & 79     & 空  & 30     \\
-		自分 & 54     & 笑顔 & 26     \\
-		未来 & 35     & 胸  & 23     \\
-		涙  & 34     & 声  & 22     \\
-		心  & 32     & 道  & 20     \\
-		\hline
+\red{
+	図\ref{fig:top10-news-senaka-ruiseki}は，\senaka 楽曲群での
+	頻出単語上位10語を，発表年の時系列順に累積グラフとして出力したものである．
+	（この図からどういう傾向を読み取ればいいの？累積なんだから「増えていく（右肩上がり）」になるのは当然のこと．その上で，どういう結果を理緒さんが期待していて，その通りになったのか，それともなってないのか，どっち？）
+}
 
-		%「表の中身を書く」
-	\end{tabular}
+\red{
+	\emotional 楽曲群の場合は，....（どうだったのか？\senaka と比べて，どういう違いがあったのか？図は入らないから文章でよい）
+}
 
-\end{table}
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=\hsize]{fig/top10-news-senaka-ruiseki.png}
-	\caption{表１をもとに全楽曲を対象とした単語の累積グラフ}
-	\label{fig:top10-news-senaka-ruiseki}
-	\end{figure}
+%図\ref{fig:top10-news-senaka-ruiseki}は「背中を押す」NEWS楽曲をサンプルにし名詞の頻出単語上位10個を時系列累積グラフとして出力したものである．\red{それが何？}
 
 \section{まとめ}
 
-出力結果からNEWSの楽曲はとある時期を境に単語が増加する傾向が見られた．
-今回は歌詞にのみ着目したが，メロディなどほかの要素を加えることでより詳しい分析になるだろう．
+NEWSの楽曲は\red{，}人数編成が変わる境に\red{なんの}単語が増加する傾向が見られた．
+ほかにも2015年も変化の傾向があることがわかった．\red{←これが研究成果なの？}
+%今回は歌詞にのみ着目したが，メロディなどほかの要素を加えることでより詳しい分析になるだろう．
+
+
+
+% ==========================================
+% 図１，図２は縦とグラフ間の間隔を狭めて横長の寸法にする（まだまだ余白が大きくて文字が小さいので対策すべし）
+% また，８人時代を載せるかどうかは図１図２で統一させること
+% （発表年で並べておいて，軸に人数時代のグループ化でしてもいいぐらいだけど？）
+% 図２の凡例「1/2/3/4/5/6」は意味不明．また左上の空白部に移動させる．
+% ==========================================
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{\hsize}
+		\centering
+		\includegraphics[width=\hsize]{fig/meishi-yume.png}
+		\caption{「夢」の人数時代別使用頻度推移}
+		\label{fig:yume}
+	\end{minipage}
+
+	\vspace{12pt}
+	\begin{minipage}{\hsize}
+		\centering
+		\includegraphics[width=\hsize]{fig/yume-ninzu.png}
+		\caption{「夢」の時代別使用意味比較}
+		\label{fig:yume-ninzu}
+	\end{minipage}
+
+	\vspace{12pt}
+	\begin{minipage}{\hsize}
+		\centering
+		\includegraphics[width=\hsize]{fig/top10-news-senaka-ruiseki.png}
+		\caption{\red{\senaka 楽曲群における頻出単語の出現の様子（累積）}}
+		\label{fig:top10-news-senaka-ruiseki}
+	\end{minipage}
+\end{figure}
+
+% \begin{table}[h]
+% 	\centering
+% 	\caption{選曲した35曲の名詞出現回数上位10単語}
+% 	\label{tab:news-senaka}
+% 	\begin{tabular}{cc|cc}
+% 		\hline
+% 		単語 & 出現回数 & 単語 & 出現回数 \\ \hline
+% 		夢  & 79   & 空  & 30   \\
+% 		自分 & 54   & 笑顔 & 26   \\
+% 		未来 & 35   & 胸  & 23   \\
+% 		涙  & 34   & 声  & 22   \\
+% 		心  & 32   & 道  & 20   \\
+% 		\hline
+% 	\end{tabular}
+% \end{table}
+
