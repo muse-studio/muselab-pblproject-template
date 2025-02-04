@@ -1,0 +1,36 @@
+% !TEX root = _main.tex
+
+\begin{table}[tb]
+    \centering
+    \caption{分析に用いる旋律情報およびメタデータ}
+    \label{tab:bunseki_info}
+    \begin{tabular}{c|c|l}
+        \hline
+                                         & 項目\cut{名}  & 説明\red{\scriptsize{※具体的な変数や型で示すべし}}                    \\ \hline
+        \multirow{10}{*}{\pbox<t>{旋律情報}} & \red{歌詞}   & \red{分析に必要\scriptsize{（説明になってない）}}                     \\
+                                         & \red{楽曲ID} & \red{楽曲名}＋同曲内の出現\red{順}                                \\
+                                         & BPM        & \red{四分音符単位でのテンポ\scriptsize{（\ref{sec:gakufu_data}節）}} \\%秒数・累積秒に必要
+                                         & 拍子         & \red{分析に必要\scriptsize{（説明になってない）}}                     \\
+                                         & 調号         & \red{分析に必要\scriptsize{（説明になってない）}}                     \\
+                                         & 音符の種類      & 音符\red{ または }休符\cut{か} \footnotemark                   \\
+                                         & \red{音高}   & \red{MIDIノートナンバー}                                      \\
+                                         & \red{開始時刻} & \red{開始音の拍の位置\footnotemark}                            \\
+                                         & 拍数・累積拍     & \red{相対時間の基準(?)\footnotemark}                          \\
+                                         & 秒数・累積秒     & \red{絶対時間の基準(?)}                                       \\
+        \hline
+        \multirow{5}{*}{\pbox<t>{メタデータ}} & \red{楽曲ID} & \red{楽曲名}＋同曲内の出現\red{順}                                \\
+                                         & \red{歌手名※} & \multirow{3}{*}{\begin{tabular}{l}
+                                                                                ※同じフレーズを複数の曲で \\
+                                                                                使用しているか\end{tabular} }                 \\
+                                         & 作詞者※       &                                                        \\
+                                         & 作編曲者※      &                                                        \\
+                                         & \red{歌手属性} & 男女，グループかどうか                                            \\
+                                         & 発売日        & 発売年ごとの傾向の分析                                            \\ \hline
+    \end{tabular}
+
+\end{table}
+
+
+\footnotetext{\red{休符は文字に対応しないと思うけど，分析対象として使ってるの？}}
+\footnotetext{\red{offsetは「``曲の開始"からの拍の長さ」ではないと思うよ..}}
+\footnotetext{\red{「拍」や「秒」が「基準」と言われてもよくわからない．}}
