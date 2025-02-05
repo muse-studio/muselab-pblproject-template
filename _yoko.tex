@@ -15,6 +15,8 @@
 \usepackage{latexsym}
 \usepackage{newtxtext,newtxmath}
 \usepackage[utf8]{inputenc} 	%波ダッシュ（〜）を表記できるようにする
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\cut}[1]{\textcolor{red}{\sout{\textcolor{black}{#1}}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -35,10 +37,12 @@
 ]
 
 %% ここから本文を書く
-\input{koyama-yoko-0114}
+\input{koyama-yoko}
 
 
 % 参考文献
+\vspace{10pt}
+\scriptsize
 \bibliographystyle{muselabunsrt} % bstファイルの名前
 \bibliography{koyama2025} % .bibファイルの名前（Zoteroからエクスポートして作る）
 
