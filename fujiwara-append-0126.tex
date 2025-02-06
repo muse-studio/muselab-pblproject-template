@@ -1,15 +1,12 @@
 % !TEX root = _main.tex
+
+\begingroup
 \onecolumn % 1段組にする
-% \appendix
-% \section{NEWS歌詞データ}
-% \label{sec:news-all-lyrics}
-% 本研究の分析に際し，収集する必要のあるデータは「曲名」「発売日」「歌詞」「グループ人数」の４つである．
-% 今回分析対象としたNEWS楽曲は，歌ネット\cite{utanet}に基づいて収集した266曲(2024/11/13現在)である．
-% 以下に歌詞データを示す．
+\appendix
 
 % -------------------------------------------------------------------
 
-\includepdf[pages=1,scale=.83,offset=0cm -1.7cm,clip,pagecommand={\appendix
+\includepdf[pages=1,scale=.83,offset=0cm -1.7cm,clip,fitpaper=true,pagecommand={
 			\section{NEWS歌詞データ}
 			\label{sec:news-all-lyrics}
 			本研究の分析に際し，収集する必要のあるデータは「曲名」「発売日」「歌詞」「グループ人数」の４つである．
@@ -68,3 +65,5 @@
 \includepdf[pages=1,scale=.9,clip,fitpaper=true,pagecommand={
 			\subsection{名詞}\label{sec:kyokusu-mei}}]{fig/kyokusu-mei.pdf}
 \includepdf[pages=2-,scale=.9,clip,pagecommand={（名詞の使用曲数（続き））}]{fig/kyokusu-mei.pdf}
+
+\endgroup
