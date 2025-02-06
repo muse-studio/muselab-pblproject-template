@@ -169,6 +169,22 @@
   note = {http://id.nii.ac.jp/1001/00077636/}
 }
 
+@article{niduma,
+  title = {{Random Forestを用いた音楽ジャンル分類}},
+  author = {新妻, 雅弘},
+  year = {2009},
+  month = dec,
+  journal = {情報処理学会論文誌},
+  volume = {50},
+  number = {12},
+  pages = {2910--2922},
+  publisher = {情報処理学会},
+  urldate = {2023-12-18},
+  abstract = {本論文はRandom Forestを分類器とし，高次元の特徴量を用いた音楽ジャンル分類について述べる．従来の研究は，特定の音楽ジャンルに限られた特徴量，単旋律に関わる特徴量のみを用いており，広範な音楽ジャンル分類には対応できない．また，特徴量すべてについてチューニングを行うことで高い精度を得ている研究も多いが，ある音楽ジャンル分類に最適化したチューニングは過学習の問題からそのほかの音楽ジャンル分類にはそのまま適用できない．そこで本研究では，広範なジャンルを考慮した1,022次元の特徴量を用い，高次元，低サンプル数の問題に強いとされるRandom Forestを分類器とすることでチューニングをすることなく幅広い音楽ジャンルの分類に対応する手法を提案する．また，Out-Of-Bagデータを用いることで分類の際に重要な役割を果たしている特徴量を分析し，音楽ジャンル分類というタスクのメカニズムの解明に足がかりを与える．実験の結果，提案手法による分類精度はRootデータセットに対して97\%，Leafデータセットに対して84\%となり，チューニングを行っている先行研究と同等以上となった．また，訓練データに用いるサンプル数と精度の関係を検証した結果，提案手法がサンプル数の減少に対して優れた性能を持つことが示された．さらに，Out-Of-Bagデータを用いた変数の重要性推定に基づいた特徴量選択により，RootデータセットおよびLeafデータセットの各々のジャンル分類に固有な特徴量を分析できることを示した． This paper proposes a music genre classification method using highdimensional features and Random Forest. Most of the previous work uses features designed to be adapted to only a limited range of music genres because of the data sparseness problem and tunes parameters in order to achieve high accuracy. However, feature selection often leads to over fitting and tuning parameters each time is not practical. In this paper, we propose music genre classification method using 1,022-dimensional features designed to be adapted to a wide range of music genres and Random Forest that easily handles highdimensional features. Moreover, variable importance is estimated using out-ofbag data to clarify the mechanism of music genre classification. The proposed method has achieved 97\% accuracy in root genre classification and 84\% in leaf genre classification, which are favorable compared to other methods especially when the number of training samples is small. Moreover, variable importance estimation using out-of-bag data sheds new light on mechanism of music genre classification.},
+  langid = {japanese},
+  note = {https://cir.nii.ac.jp/crid/1050282812875877632}
+}
+
 @misc{percino,
   title = {Instrumentational Complexity of Music Genres and Why Simplicity Sells},
   author = {Percino, Gamaliel and Klimek, Peter and Thurner, Stefan},
@@ -221,11 +237,22 @@
   howpublished = {https://www.interaction-ipsj.org/archives/paper2013/data/Interaction2013/interactive/data/pdf/1EXB-09.pdf}
 }
 
-@article{Sapp,
+@inproceedings{sapp,
+  title = {Hybrid {{Numeric-Rank Similarity Metrics}} for {{Musical Performance Analysis}}},
+  booktitle = {International {{Society}} for {{Music Information Retrieval}} ({{ISMIR}})},
+  author = {Sapp, Craig},
+  year = {2008},
+  month = sep,
+  note = {https://zenodo.org/records/1417561}
+}
+
+@article{Sapp01,
   title = {Harmonic {{Visualizations}} of {{Tonal Music}}},
   author = {Sapp, Craig Stuart},
+  year = {2001},
   abstract = {Multi-timescale visualization techniques for displaying the output from key-finding algorithms are presented in this paper. The horizontal axis of the key graphs represents time in the score, while the vertical axis represents the duration of an analysis window used to select music for the key-finding algorithm. Each analysis window result is shaded according to the output key's tonic pitch. The resulting diagrams can be used to compare differences between key-finding algorithms at different time scales and to view the harmonic structure and relationships between key regions in a musical composition.},
-  langid = {english}
+  langid = {english},
+  note = {https://ccrma.stanford.edu/{\textasciitilde}craig/papers/01/}
 }
 
 @article{Sapp05,
@@ -249,13 +276,6 @@
   year = {2007},
   month = sep,
   abstract = {A technique for comparing numerous performances of an identical selection of music is described. The basic methodology is to split a one-dimensional sequence into all possible sequential sub-sequences, perform some op- eration on these sequences, and then display a summary of the results as a two-dimensional plot; the horizontal axis being time and the vertical axis being sub-sequence length (longer lengths on top by convention). Most types of timewise data extracted from performances can be com- pared with this technique, although the current focus is on beat-level information for tempo and dynamics as well as commixtures of the two. The primary operation used on each sub-sequence is correlation between a reference per- formance and analogous segments of other performances, then selecting the best correlated performances for the sum- mary display. The result is a useful navigational aid for coping with large numbers of performances of the same piece of music and for searching for possible influence between performances.}
-}
-
-@inproceedings{Sapp08,
-  title = {Hybrid {{Numeric}}/{{Rank Similarity Metrics}} for {{Musical Performance Analysis}}},
-  author = {Sapp, Craig},
-  year = {2008},
-  month = sep
 }
 
 @article{Savelsberg20,
@@ -308,7 +328,7 @@
   urldate = {2025-01-30},
   abstract = {情報学広場 情報処理学会電子図書館},
   langid = {japanese},
-  note = {https://ipsj.ixsq.nii.ac.jp/ej/index.php?active\_action=repository\_view\_main\_item\_detail\&page\_id=13\&block\_id=8\&item\_id=204323\&item\_no=1}
+  note = {http://doi.org/10.20729/00204228}
 }
 
 @article{Tzanetakis02,
@@ -335,22 +355,6 @@
   volume = {24},
   pages = {111--130},
   abstract = {The paper gives an overview of an inter-disciplinary research project whose goal is to elucidate the complex phenomenon of expressive music performance with the help of machine learning and automated discovery methods. The general research questions that guide the project are laid out, and some of the most important results achieved so far are briey summarized (with an emphasis on the most recent and still very speculative work). A broad view of the discovery process is given, from data acquisition issues through data visualization to inductive model building and pattern discovery. It is shown that it is indeed possible for a machine to make novel and interesting discoveries even in a domain like music. The report closes with a few general lessons learned and with the identi cation of a number of open and challenging research problems.}
-}
-
-@article{XinQi09,
-  title = {{Random Forestを用いた音楽ジャンル分類}},
-  author = {新妻, 雅弘},
-  year = {2009},
-  month = dec,
-  journal = {情報処理学会論文誌},
-  volume = {50},
-  number = {12},
-  pages = {2910--2922},
-  publisher = {情報処理学会},
-  urldate = {2023-12-18},
-  abstract = {本論文はRandom Forestを分類器とし，高次元の特徴量を用いた音楽ジャンル分類について述べる．従来の研究は，特定の音楽ジャンルに限られた特徴量，単旋律に関わる特徴量のみを用いており，広範な音楽ジャンル分類には対応できない．また，特徴量すべてについてチューニングを行うことで高い精度を得ている研究も多いが，ある音楽ジャンル分類に最適化したチューニングは過学習の問題からそのほかの音楽ジャンル分類にはそのまま適用できない．そこで本研究では，広範なジャンルを考慮した1,022次元の特徴量を用い，高次元，低サンプル数の問題に強いとされるRandom Forestを分類器とすることでチューニングをすることなく幅広い音楽ジャンルの分類に対応する手法を提案する．また，Out-Of-Bagデータを用いることで分類の際に重要な役割を果たしている特徴量を分析し，音楽ジャンル分類というタスクのメカニズムの解明に足がかりを与える．実験の結果，提案手法による分類精度はRootデータセットに対して97\%，Leafデータセットに対して84\%となり，チューニングを行っている先行研究と同等以上となった．また，訓練データに用いるサンプル数と精度の関係を検証した結果，提案手法がサンプル数の減少に対して優れた性能を持つことが示された．さらに，Out-Of-Bagデータを用いた変数の重要性推定に基づいた特徴量選択により，RootデータセットおよびLeafデータセットの各々のジャンル分類に固有な特徴量を分析できることを示した． This paper proposes a music genre classification method using highdimensional features and Random Forest. Most of the previous work uses features designed to be adapted to only a limited range of music genres because of the data sparseness problem and tunes parameters in order to achieve high accuracy. However, feature selection often leads to over fitting and tuning parameters each time is not practical. In this paper, we propose music genre classification method using 1,022-dimensional features designed to be adapted to a wide range of music genres and Random Forest that easily handles highdimensional features. Moreover, variable importance is estimated using out-ofbag data to clarify the mechanism of music genre classification. The proposed method has achieved 97\% accuracy in root genre classification and 84\% in leaf genre classification, which are favorable compared to other methods especially when the number of training samples is small. Moreover, variable importance estimation using out-of-bag data sheds new light on mechanism of music genre classification.},
-  langid = {japanese},
-  note = {https://cir.nii.ac.jp/crid/1050282812875877632}
 }
 
 @article{ZhenXiao02,
