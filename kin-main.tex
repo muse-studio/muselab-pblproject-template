@@ -61,7 +61,7 @@ Yoonchang Hanら\cite{han}は，畳み込みニューラルネットワーク（
 
 %分析する楽曲を対象楽曲とし，対象楽曲の
 入力は，MP3形式の音響信号とする．
-入力音声に対し，webサイトを介した処理を行い，楽器構成を抽出する．次に，抽出された楽器構成に対してデータベースとの照合を行い，ジャンルの一致率を算出する．
+入力音声に対し，機械学習モデルを用いて楽器構成を抽出する．次に，抽出された楽器構成に対してデータベースとの照合を行い，ジャンルの一致率を算出する．
 分析結果はジャンルごとにグラフとして視覚化する．
 
 %提案システムの構成は主に音色の抽出，音楽ジャンルの解析，計算結果の表示の３つにわけることが出来る．
@@ -73,184 +73,15 @@ jazz，classic，rockの３ジャンルを対象とし，各ジャンル50曲，
 使用楽曲は，音楽配信サービスSpotify\cite{spotify}にて各ジャンルの名盤を検索し，人気順で選定した．
 また，正確なジャンル分類を保証するため，Apple MusicおよびAmazon Musicのジャンル情報とも一致する楽曲のみを選定した．
 
-収録する楽曲情報は楽曲名，音楽ジャンル，使用楽器である．Spotifyを主なデータソースとし，スコアや楽曲クレジット情報を元に使用されている楽器構成を抽出した．
+収録する楽曲情報は楽曲名，音楽ジャンル，使用楽器である．
+
+Spotifyを主なデータソースとし，スコアや楽曲クレジット情報を元に使用されている楽器構成を抽出した．
 一部の楽曲についてスコア（総譜）や詳細な楽曲クレジット情報が不足している場合には，聴取による推定や補足を行った．
 ソフトウェア音源を使用して楽器の音色を再現している楽曲については，再現している楽器として抽出した．
-また，エフェクトがかかっており元の楽器の音色が判別できない音や，コンピュータで演奏されており楽器の音と判別できない音がある．
-これらの楽器は一律に電子音とした．
-作成したデータベースの一部を\tabref{fig:database}に示す．
+また，エフェクトがかかっており元の楽器の音色が判別できない音や，コンピュータで作成された音源のため楽器の音と判別できない音がある．
+これらの楽器は一律に電子音（シンセサイザ委）とした．
 
-\begin{table}[tb]
-	\centering
-	\caption{データベース（一部のみ．詳細は付録\ref{app:database}を参照）}
-	\includegraphics[width=\hsize]{fig/fig11-database.png}
-	\label{fig:database}
-\end{table}
-
-%\subsection{音色の抽出}
-本研究では時間推移における楽器構成の変化を捉え，対象楽曲の楽器構成から音楽ジャンルの変化を分析する．
-\subsection{楽器構成の抽出}
-まず，入力音声ファイルを５秒ごとのセグメントに分割する．
-LP-MusicCapsは音声を10秒ごとにテキスト出力する．しかし，10秒では処理時間が長くなるほか，10秒の間に楽器が2度変化する楽曲がいくつか見られた．そこで，分割する秒数を5秒とした．
-
-%音声ファイル名のフォルダを新たに作成し，作成フォルダ内に各セグメントを格納する．
-%音声ファイル名のフォルダが既に存在する場合には，この処理は行わずに既存のセグメントを解析に用いる．
-%これにより，データの重複を防ぐことが可能である．
-%
-次に，各セグメントに対し，楽器特徴量を解析した上での楽器構成を抽出する．
-この処理には，音楽音声に対して自然言語による説明文を自動生成するLP-MusicCaps\cite{LP}を用いる．
-%これはISMIR 2023\cite{ISMIR2023}で発表されたもので，ものである．
-
-
-% -----以下，どこにつながる話かわからない...のでコメントアウト ------
-% 表２は，LP-MusicCapsの整合性を示したものである\red{（どれのこと？）}．
-% 使用楽器数が少ない楽曲では高い整合性があることがわかる．
-% しかし，楽器構成が複雑になるほど正確に抽出することが困難である傾向があると考える\red{（だから何？どこにつながる話？）}．
-
-
-% 図２は音色の抽出手法のシステム構成図である\red{（どれのこと？）}．
-
-% LP-MusicCapsは音声データからテキスト生成するテキストである．
-% 音声ファイルをLP-MusicCapsの外部webサイトを介して生成されたテキストを取得する．
-% ------ここまでコメントアウト------
-
-% ------以下は４章（実装へ）に移動 ----------
-% LP-MusicCapsで生成されたテキストはセグメントが保存されているフォルダ内にテキストファイルとして保存される．
-
-% しかし，外部webサイトを介した処理を行う場合に処理速度が遅くなるという問題がある．
-% 解決方法として，すでに入力音声ファイルと同名のフォルダが存在する場合にはLP-MusicCapsを介した処理を行わず，フォルダ内に存在するテキストファイルからテキストを取得する処理を追加した．
-% これにより，過去に解析したことのある楽曲を再度解析する際の処理速度が短縮される．
-
-抽出されたテキストのうち，楽器名の記述部分のみを抽出し，当該セグメントの楽器構成としてリスト化する．
-以上の処理をすべてのセグメントに対して行い，時間ごとの楽器構成を抽出する．
-
-\subsection{音楽ジャンルの一致率分析}
-本研究では，対象楽曲の楽器構成と一致する楽器構成の楽曲がデータベースに何曲存在するかを計算した数値をジャンルの一致率と定義する．
-
-楽器構成の部分一致は考慮せず，全て一致した楽曲のみをカウントすることとする．
-これは，どのジャンルにも多く使用されている楽器があるため，楽器構成の部分一致を考慮すると音楽ジャンル一致率の整合性に欠けると判断したためである．
-例えば，データベース上でドラムが使用されている楽曲はjazzで50曲中47曲，rockで50曲中50曲，classicで15曲存在し，ヴァイオリンが使用されている楽曲はjazzで50曲中3曲，rockで50曲中1曲，classicで50曲中35曲存在する．
-楽器構成の部分一致を考慮した場合のドラムとヴァイオリンが使用されている楽曲を考える．
-ドラムが使用されているためどの音楽ジャンルも一致率が比較的高い数値が出てしまうが，実際にヴァイオリンとともに使用されている楽曲はjazzは3曲，rockは1曲，classicは15曲であるため，jazzとrockで高い数値が出るのは整合性に欠けると考えられる．
-このように，部分一致は音楽ジャンル一致率の算出における整合性を考慮した結果，楽器構成が完全に一致する楽曲のみをカウントする．
-
-一致率はジャンルごとに計算する．
-楽曲Xにおける
-ジャンル$G$の一致率$A_X(G_i)$の計算式は以下のとおりである．
-
-\begin{equation}
-	A_X(G_i) = \frac{\text{一致した楽曲数}}{\text{ジャンル}G_i\text{の総楽曲数}}
-\end{equation}
-
-$A_X(G_i)$は最大値を1.0として，数値が大きいほど一致度が高いことを示す．
-
-対象楽曲の楽器構成を取得すると，まずデータベースの各ジャンルの総楽曲数をカウントする．
-次にデータベース上の楽曲から取得された楽器構成とマッチする楽曲をカウントし，上記の計算式を用いてジャンルの一致率を算出する．
-
-上記の処理をセグメントごとに各ジャンルに対して行う．
-
-算出した一致率を，ヒストグラムで表示する．
-
-ヒストグラムは，横軸を時系列，縦軸を最大値１の音楽ジャンル一致率とする．
-セグメントごとに，最も一致率の高いジャンルは赤色に，そのほかのジャンルは青色に表示される．
-\figref{fig:exsamhist}はヒストグラム例である．
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=\hsize]{fig/fig24-examhist.png}
-	\caption{出力されるヒストグラムの例}
-	\label{fig:exsamhist}
-\end{figure}
-
-
-\section{実装}
-本システムはPythonで実装し，以下のライブラリを使用した．
-
-\begin{description}
-	\item[os] ファイルやディレクトリの操作に使用するライブラリである．特に，フォルダ内のファイルリスト取得やパス操作に使用した．
-
-	\item[tkinter] GUIを構築するためのライブラリである．本システムでは，ファイルのアップロードや結果の表示に利用した．
-
-	\item[pandas] データフレーム形式でのデータ操作を効率化するライブラリである．本研究ではcsvファイルの読み込みやデータ集計の処理に利用した．
-
-	\item[re] 正規表現を用いた文字列操作のライブラリである．本システムでは楽器名の抽出の際に利用した．
-
-	\item[matplotlib：] データの可視化に関するライブラリである．本システムでは，結果をヒストグラムとして表示するために使用した．
-
-\end{description}
-以下，システムの実装について解説する．
-
-%章では，作成したシステムの試用ライブラリと主要な関数についての解説を記述する．
-
-\subsection{音声ファイルのセグメント分割}
-%本関数は，ユーザが音声ファイルをアップロードするための関数である．
-% 関数のソースコードを\figref{fig:upload}に示す．
-
-% \begin{figure}[tb]
-% 	\centering
-% 	\includegraphics[width=\hsize]{fig/fig9-upload.png}
-% 	\caption{upload-file関数のソースコード\red{（小さすぎて読めない）}}
-% 	\label{fig:upload}
-% \end{figure}
-
-本システムの入力はmp3である．
-また、データベースは固定のパスとして設定している．
-
-対象音声が，初めて解析する音声ファイルである場合，
-\verb|Split-audio-to-named-dir|関数を用いて音声ファイルを５秒ごとのセグメントに分割する．
-分割されたセグメントを，webサイトを介して処理する．
-\verb|Split-audio-to-named-dir|関数のフローチャートを\figref{fig:audiobunkatu}に示す．
-
-指定パスが存在し，ディレクトリであるかを確認後，指定フォルダ内のテキストファイルを処理する．
-処理内容は\verb|process-existing-folder|関数の内容である．
-\verb|process-existing-folder|関数のフローチャートを\figref{fig:folder}に示す．
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=\hsize]{fig/fig20-audiobunkatu.png}
-	\caption{Split-audio-to-named-dir関数のフローチャート}
-	\label{fig:audiobunkatu}
-\end{figure}
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=\hsize]{fig/fig21-folder.png}
-	\caption{process-ecisting-folder関数のフローチャート}
-	\label{fig:folder}
-\end{figure}
-
-%フォルダが存在しない場合，つまり解析したことのないファイルを解析する場合には以下の処理に分岐する．
-
-\subsection{セグメントに含まれる楽器名の抽出}
-%Split-audio-to-named-dir関数
-%Process-existing-folder関数
-
-%本関数は，フォルダ内のテキストファイルを処理し，楽器名を抽出する関数である．
-
-% -- 3章から移動
-webサイトを介する処理には，ChromeDriveを用いてwebスクレイピングを行う．ChromeDriverの実行ファイルのパスを指定し，LP-MusicCapsのWebアプリのURLを指定することで，webサイトを介して音声ファイルを送信し，そこで出力されたテキストを取得している．
-
-取得したテキストはセグメントが保存されているフォルダ内にテキストファイルとして保存される．
-このとき，外部webサイトを介した処理を行っているため，処理速度が遅くなるという問題がある．
-10秒の音声ファイルを処理する場合，2分程の処理時間を要した．通常楽曲は5分前後であることが多く，楽曲を入力した際に長い処理時間を要する．
-解決方法として，すでに入力音声ファイルと同名のフォルダが存在する場合にはLP-MusicCapsを介した処理を行わず，フォルダ内に存在するテキストファイルからテキストを取得する処理を追加した．
-これにより，過去に解析したことのある楽曲を再度解析する際の処理速度が短縮される．
-% ------------
-
-% 関数のソースコードを\figref{fig:folder}に示す．
-
-% \begin{figure}[tb]
-% 	\centering
-% 	\includegraphics[width=\hsize]{fig/fig8-folder.png}
-% 	\caption{Process-existing-folder関数のソースコード}
-% 	\label{fig:folder}
-% \end{figure}
-
-引数は”folder-path”（処理対象のフォルダパス），”csv-file-path”（データベースのパス）である．
-
-本システムでは，\tabref{tab:instrument}に示す楽器名を正規表現パターンと定義して，使用楽器を抽出している．
-取得した各テキストファイルの内容を小文字に変換後，正規表現で楽器名を抽出する．
-その際，一部の楽器名は一般的なカテゴリに変換する処理を追加した．
+本システムで使用する楽器名を\tabref{tab:instrument}に示す．
 
 \begin{table*}[tb]
 	\centering
@@ -281,63 +112,206 @@ webサイトを介する処理には，ChromeDriveを用いてwebスクレイピ
 	\label{tab:instrument}
 \end{table*}
 
-\subsection{音楽ジャンルの一致率計算}
-次に，データベースと一致する楽器がある場合，”calculate-genre-match-rate”関数を用いて音楽ジャンルの一致率を計算する．
+作成したデータベースの一部を\tabref{fig:database}に示す．
 
-計算結果は”segment-results”辞書に保存され、”plot-genre-histograms”関数を用いて音楽ジャンルごとの一致率をヒストグラムで表示する．
-この際，セグメントの音楽ジャンル一致率の計算結果を引数に取る．
+\begin{table}[tb]
+	\centering
+	\caption{データベース（一部のみ．詳細は付録\ref{app:database}を参照）}
+	\includegraphics[width=\hsize]{fig/fig11-database.png}
+	\label{fig:database}
+\end{table}
 
-%\subsection{Calculate-genre-match-rate関数}
-”calculate-genre-match-rate”関数は，楽器名リストとデータフレームを入力として受け取り，音楽ジャンルごとの一致率を計算する関数である．
-関数のフローチャートを\figref{fig:rate}に示す．
+%\subsection{音色の抽出}
+%本研究では時間推移における楽器構成の変化を捉え，対象楽曲の楽器構成から音楽ジャンルの変化を分析する．
+\subsection{楽器構成の抽出}
+まず，入力音声ファイルを３秒ごとのセグメントに分割する．
+
+音声ファイル分割のフローチャートを\figref{fig:audiobunkatu}に示す．
+
+データベースの楽曲において，楽器の変動が最も多い楽曲を分析した．
+その結果，最も早く楽器構成が変化するのが３秒間であった．
+また，分割秒数を短時間にすると楽器構成の抽出精度が低下した．
+これらの理由から，分割秒数は３秒とした．
 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=\hsize]{fig/fig22-rate.png}
-	\caption{Calculate-genre-match-rate関数のフローチャート}
-	\label{fig:rate}
+	\includegraphics[width=\hsize]{fig/fig20-audiobunkatu.png}
+	\caption{音声ファイル分割のフローチャート}
+	\label{fig:audiobunkatu}
 \end{figure}
 
-主な処理内容は以下のとおりである．
+%音声ファイル名のフォルダを新たに作成し，作成フォルダ内に各セグメントを格納する．
+%音声ファイル名のフォルダが既に存在する場合には，この処理は行わずに既存のセグメントを解析に用いる．
+%これにより，データの重複を防ぐことが可能である．
+%
+次に，各セグメントに対し，楽器構成を抽出する．
 
-引数は”instruments”（楽器名リスト），”data”（データベース）である．
+楽器構成の抽出におけるフローチャートを\figref{fig:PANNs}に示す．
 
-楽器列が１である行を抽出，フィルタリングし，音楽ジャンルごとに一致行をカウントする．
-次に”genre”列全体の音楽ジャンルごとの総数をカウントし，カウントした総数と一致行数を用いて一致率を算出する．
-計算式は３章で示した通りである．
 
-出力は，以下の3つのカラムを持つデータフレームを返す．
+楽器の抽出には，Pretrained Audio Neural Networks (PANNs)\cite{PANNs} を活用し，畳み込みニューラルネットワーク（CNN）を基盤とするモデル Cnn14\_DecisionLevelMax を用いて楽器分類を行う．
+Pretrained Audio Neural Networks (PANNs) とは，大規模データセットであるAudioSetで事前学習された音響イベント分類用のニューラルネットワークである．
+CNNベースのアーキテクチャを持ち，音響特徴量を抽出し，分類や特徴量として利用できる．
+PANNsの一種で，音響イベント分類のために設計されたCNNモデルである．
+最大プーリング(Max Pooling)を採用して最も強い音響特徴量を反映することで，分類精度を向上させている．
 
-\begin{description}
-	\item[Total Count] ジャンルの総曲数
-	\item[Matching Count] 楽器構成が一致している曲数
-	\item[Match Rate (ratio)] 音楽ジャンルの一致率
-\end{description}
+対象とする入力音源はmp3ファイルである．楽器分類に適した形に前処理を施した後，モデルによる推論を行う．
+その後，各楽器の各進度を計算しながら最終的な構成を決定する．
 
-\subsection{計算結果の可視化}
-%Plot-genre-histograms関数
-”plot-genre-histograms”関数は，音楽ジャンルごとのセグメントごとの一致率をヒストグラムで表示する関数である．
+PANNsは32kHzのサンプリングレートを前提として訓練されている．
+そのため，入力音声ファイルの前処理では入力音声を32kHzにリサンプリングする処理を行う．
+また，不要なノイズの低減と，高周波成分の協調，打楽器成分の分離のために，ノイズ除去および高周波・低周波フィルタの適用を行う．
+さらに，標準偏差に基づく正規化を行い，音量バランスを調整することで，音響特徴の抽出精度を向上させる．
+これにより，不要な雑音や音量変化の影響を受けにくくなる．
 
-関数のフローチャートを\figref{fig:histgram}に示す．
+上記の処理後の音声データをPANNsに入力し，50回の反復推論を実施して結果の安定化を図る．
+これにより，少ない反復推論では検出されなかったbassが検出された．
+この推論結果として，527クラスに分類された楽器・音響ラベルの各進度スコアが得られる．
+
+この出力を基に，特定の楽器に対応するラベルを抽出し，あらかじめ設定したしきい値と比較することで，最終的な楽器構成を決定する．
+しきい値はデータベースの音源をもとに，それぞれの分類結果に適したしきい値を設定した．
+
+以上の処理によって抽出された楽器構成リストは，入力音声ファイルと同名のフォルダ内にテキストファイルとして保存される．
+この楽器抽出方法は，精度の向上を図るために処理時間が長くなるという課題がある．
+楽器構成リストをテキストファイルとして保存することで，二度目に音楽ジャンル推定を行う場合の楽器抽出処理が不要となる．
+これにより，過去に音楽ジャンル推定を行った楽曲の処理時間を短縮することが出来る．
 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=\hsize]{fig/fig23-histgram.png}
-	\caption{Plot-genre-histograms関数のフローチャート}
+	\includegraphics[width=\hsize]{fig/fig21-PANNs.pdf}
+	\caption{楽器構成の抽出におけるフローチャート}
+	\label{fig:PANNs}
+\end{figure}
+
+%これはISMIR 2023\cite{ISMIR2023}で発表されたもので，ものである．
+
+
+% -----以下，どこにつながる話かわからない...のでコメントアウト ------
+% 表２は，LP-MusicCapsの整合性を示したものである\red{（どれのこと？）}．
+% 使用楽器数が少ない楽曲では高い整合性があることがわかる．
+% しかし，楽器構成が複雑になるほど正確に抽出することが困難である傾向があると考える\red{（だから何？どこにつながる話？）}．
+
+
+% 図２は音色の抽出手法のシステム構成図である\red{（どれのこと？）}．
+
+% LP-MusicCapsは音声データからテキスト生成するテキストである．
+% 音声ファイルをLP-MusicCapsの外部webサイトを介して生成されたテキストを取得する．
+% ------ここまでコメントアウト------
+
+% ------以下は４章（実装へ）に移動 ----------
+% LP-MusicCapsで生成されたテキストはセグメントが保存されているフォルダ内にテキストファイルとして保存される．
+
+% しかし，外部webサイトを介した処理を行う場合に処理速度が遅くなるという問題がある．
+% 解決方法として，すでに入力音声ファイルと同名のフォルダが存在する場合にはLP-MusicCapsを介した処理を行わず，フォルダ内に存在するテキストファイルからテキストを取得する処理を追加した．
+% これにより，過去に解析したことのある楽曲を再度解析する際の処理速度が短縮される．
+
+%抽出されたテキストのうち，楽器名の記述部分のみを抽出し，当該セグメントの楽器構成としてリスト化する．
+
+以上の処理をすべてのセグメントに対して行い，時間ごとの楽器構成を抽出する．
+
+\subsection{音楽ジャンルの一致率分析}
+本研究では，各ジャンルの中で対象楽曲がジャンルGである確率を，「ジャンルの一致率」と定義する．
+
+抽出した楽器情報を用い，データベースと照合しながら各ジャンルに対する一致率を算出する．
+具体的には，ジャンルごとの楽器出現頻度を用いた重み付けを行い，検出された楽器の出現確率を基にジャンルごとの確率を計算する．
+この際，各楽器の出現頻度に対する対数変換を施すことで，対象楽器の寄与度を調整しつつ，一般的な楽器の影響を適切に反映するよう工夫した．
+
+音楽ジャンルの一致率計算のフローチャートを\figref{fig:genre}に示す．
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\hsize]{fig/fig22-genre.pdf}
+	\caption{音楽ジャンルの一致率計算のフローチャート}
+	\label{fig:genre}
+\end{figure}
+
+以下で計算式とともに計算手順を記述する．
+
+\textbf{(１)楽器ごとの重み計算}
+
+音楽ジャンルを識別するために有効な楽器は，特定のジャンルに特有の楽器である．
+つまり，どのジャンルにも頻出する楽器ではなく，特定のジャンルでのみ頻出する楽器が音楽ジャンルの識別において重要である．
+そこで，楽器の出現頻度に基づく重み付けを行うことで，各ジャンルに及ぼす楽器の影響を考慮する．
+
+ジャンル$G$における楽器$i_k$の平均出現確率$P(i_k|G)$は，データセット内の楽曲における該当楽器の平均値として定義される．
+
+\begin{equation}
+P(i_k | G) = \frac{1}{N_G} \sum_{j=1}^{N_G} x_{j, i_k}
+\end{equation}
+
+$x_{j, i_k}$は楽曲$j$における楽器$i_k$の有無，$N_G$はジャンル$G$に属する楽曲の総数である．
+
+ジャンル$G$の重みは以下のように定義する．
+
+\begin{equation}
+w_{i_k, G} = \log \left( \frac{N_G + 1}{\sum_{j=1}^{N_G} x_{j, i_k} + 1} \right)
+\end{equation}
+
+\textbf{(２)確率推定}
+
+対象楽曲の楽器リスト$I$が与えられたとき，各ジャンル$G$での事後確率$P(G|I)$を以下のように求める．
+
+\begin{equation}
+P(I|G) \propto \prod_{i_k \in I} P(i_k | G)^{w_{i_k, G}}
+\end{equation}
+
+各楽器の確率に対して重み$w_{i_k, G}$を指数として乗算することで，楽器の重要度が考慮される．
+さらに，ゼロ除算を防ぐために各確率値には小さい平滑化パラメータ\( \epsilon \)を適用する．
+
+\begin{equation}
+P(i_k | G) = \max (P(i_k | G), \epsilon), \quad \epsilon = 10^{-6}
+\end{equation}
+
+\textbf{(３)正規化}
+
+上記の計算により，各ジャンルの未正規化確率 \( P(G|I) \) が求まる．
+最終的な確率分布を得るために，すべてのジャンルの確率を合計し，正規化する．
+
+\begin{equation}
+P'(G|I) = \frac{P(I|G)}{\sum_{G'} P(I|G')}
+\end{equation}
+
+$P'(G|I)$は最大値を1.0として，数値が大きいほど一致度が高いことを示す．
+$P'(G|I)$をパーセント表記に変換し，小数点以下２桁までで表示する．
+
+\begin{equation}
+P_{\text{percent}}(G|I) = \lfloor P'(G|I) \times 100 \rfloor / 100
+\end{equation}
+
+上記の処理をセグメントごとに各ジャンルに対して行う．
+
+さらに，与えられたジャンル一致率をもとに，時間セグメントごとにジャンルの一致率を視覚化する．
+本システムでは，各セグメントにおけるジャンル確率の分布を比較し，一致率の高いジャンルを特定するためにヒストグラムを用いた．
+各セグメントごとのジャンル確率を棒グラフとして表示し，最も確率の高いジャンルを赤色，それ以外のジャンルを青色で表現することで，ジャンルの優勢性を明確に示すよう設計している．
+また，各バーの上部には一致率の数値を記載し，視認性を向上させている．
+
+ヒストグラム表示のフローチャートを\figref{fig:histgram}に示す．
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\hsize]{fig/fig23-histgram.pdf}
+	\caption{ヒストグラム表示のフローチャート}
 	\label{fig:histgram}
 \end{figure}
 
-計算結果はヒストグラムで表示する．
-一致率をジャンルごとのヒストグラムで可視化し，横軸をセグメント，縦軸を一致率とする．
-ヒストグラムの表示はtkinterライブラリを使用してサブウィンドウを表示して行う．引数は”segment-results”（各セグメントの音楽ジャンル該当率）である．
 
-各セグメントにおける一致率を取得後，縦軸を音楽ジャンル一致率の最大値，横軸をセグメント（時間経過）としたヒストグラムをサブウィンドウに表示する．
-サブウィンドウにはグラフ表示領域と垂直スクロールバーを作成し，フレーム内の要素が変化したときキャンバスのスクロール領域を自動調整する処理を追加している．
+この可視化分析により，時間経過に伴うジャンルの推移や，各セグメントにおけるジャンルの優位性を詳細に評価することが可能となる．
+\figref{fig:examhist}はグラフ例である．
 
-%\subsection{計算結果の表示}
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\hsize]{fig/fig24-examhist.png}
+	\caption{出力されるグラフの例}
+	\label{fig:exsamhist}
+\end{figure}
 
 
-また，TKinterを使用して，ユーザが音声ファイルの入力を安易に行えるようなGUIを作成した(\figref{GUI_start}，\figref{GUI_end})．
+\subsection{インターフェース}
+本システムは情報学の知識や音楽知識のないユーザも対象としている．
+そのため，ユーザが音声ファイルの入力を安易に行えるようなGUIを作成した．
+
+\figref{fig:GUI_start}で音声ファイルを入力する．
+また，ヒストグラム表示までの全処理が終了すると\figref{fig:GUI_end}が表示され，処理が完了したことをユーザに知らせる．
 
 \begin{figure}[tb]
 	\centering
@@ -355,132 +329,115 @@ webサイトを介する処理には，ChromeDriveを用いてwebスクレイピ
 
 
 \section{検証}
-本章では，構築したシステムの検証手順とその結果を記述する．
-
-\subsection{「Slow Motion Dream」での検証}
-入力する楽曲は，Steven M Bryantの「Slow Motion Dream」の一部を使用する．
-この楽曲は，インターネット上で公開されているフリーミュージックである．
-この音声ファイルは序盤はelectric guitar，vocalで構成され，途中でdrumが加わる楽器構成である．
-音声ファイルの時間は約10秒である．
-
-検証結果のヒストグラムを\figref{fig:example_jazz}，\figref{fig:example_rock}，\figref{fig:example_classic}に示す．
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=\hsize]{fig/fig13-example_jazz.png}
-	\caption{Slow Motion Dreamのjazzヒストグラム}
-	\label{fig:example_jazz}
-\end{figure}
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=\hsize]{fig/fig14-example_rock.png}
-	\caption{Slow Motion Dreamのrockヒストグラム}
-	\label{fig:example_rock}
-\end{figure}
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=\hsize]{fig/fig12-example_classic.png}
-	\caption{Slow Motion Dreamのclassicヒストグラム}
-	\label{fig:example_classic}
-\end{figure}
-
-\figref{fig:segment1_txt}，\figref{fig:segment2_txt}，\figref{fig:segment3_txt}は，各セグメントで取得されたテキストファイルの内容である．
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=\hsize]{fig/fig15-segment1_txt.png}
-	\caption{0秒から5秒で取得したテキスト}
-	\label{fig:segment1_txt}
-\end{figure}
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=\hsize]{fig/fig16-segment2_txt.png}
-	\caption{5秒から10秒で取得したテキスト}
-	\label{fig:segment2_txt}
-\end{figure}
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=\hsize]{fig/fig17-segment3_txt.png}
-	\caption{10秒からおわりまでで取得したテキスト}
-	\label{fig:segment3_txt}
-\end{figure}
-
-また，このテキストから取得した楽器構成は次のとおりである．
-
-\begin{description}
-	\item[0秒から5秒] 'vocal', 'electric guitar', 'bass guitar'
-	\item[5秒から10秒] 'vocal', 'electric guitar', 'drum', 'bass guitar'
-	\item[10秒からおわり] 'vocal', 'electric guitar'
-\end{description}
-
-これらの楽器構成はすべて聴取した際の楽器構成と一致しており，楽器構成や一致率の計算結果，ヒストグラムの結果は正しいといえる．
-
-\subsection{「EMPIRE」での検証}
 入力する楽曲はsnowmanの「EMPIRE」冒頭1分19秒を使用する．
 
 この楽曲はモーツァルト作曲「交響曲第25番ト短調K.183」の第一楽章をサンプリングした楽曲であり，イントロと呼ばれる冒頭部分ではサンプリング元楽曲の冒頭部分である第一楽章の第一主題が流れ，その後ロック調のメロディで構成される．
 また，間奏部分においてもサンプリング元楽曲が流れており，classicとjazzの要素が時間水位に伴い混在する楽曲となっている．
 このように本楽曲は時間遷移に伴いジャンルが変化しているため，システムの検証に適していると考えた．
 
-検証結果のヒストグラムを\figref{fig:EMPIRE_short_jazz}，\figref{fig:IMPIRE_short_rock}，\figref{fig:EMPIRE_short_classic}に示す．
+実際の楽器構成と本システムで抽出された楽器構成を\tabref{tab:instrument2}に示す．
+
+\begin{table*}[tb]
+	\centering
+	\caption{実際の楽器構成と本システムで抽出された楽器構成}
+	\scriptsize
+	\begin{tabular}{|c||c|c|} \hline
+		セグメント名 & 実際の楽器構成 & 抽出された楽器構成 \\ \hline\hline
+		segment1 & synth, violin, viola, cello & synth, violin, cello, horn, bass \\ \hline
+		segment2 & synth, vocal, violin, viola, cello, drum &  synth, vocal, violin, cello, drum \\ \hline
+		segment3 & synth, vocal, violin, viola, cello, oboe, horn, drum & synth, vocal, violin, cello, horn, drum \\ \hline
+		segment4 & synth, vocal, violin, viola, cello, oboe, horn, drum & synth, vocal, violin, cello,  horn, drum, bass \\ \hline
+		segment5 & synth, vocal, backing vocal, drum & synth, vocal, drum \\ \hline
+		segment6 & synth, vocal, backing vocal, drum, bass & synth, vocal, drum, bass \\ \hline
+		segment7 & synth, vocal, backing vocal, drum, bass & synth, vocal, cello, drum, bass\\ \hline
+		segment8 & synth, vocal, backing vocal, drum, bass & synth, vocal, drum, bass\\ \hline
+		segment9 & synth, vocal, violin, viola, cello, backing vocal, drum, bass & synth, vocal, violin, cello, horn, drum. bass\\ \hline
+		segment10 & synth, vocal, backing vocal, drum, bass & synth, vocal, drum, bass\\ \hline
+		segment11 & synth, vocal, backing vocal, drum, bass & synth, vocal, drum, bass\\ \hline
+		segment12 & synth, vocal, backing vocal, drum, bass & synth, vocal, violin, drum, bass\\ \hline
+		segment13 & synth, vocal, backing vocal, drum, bass & synth, vocal, violin, drum, bass\\ \hline
+		segment14 & vocal, violin, viola, cello, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment15 & vocal, violin, viola, cello, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment16 & synth, vocal, violin, viola, cello, backing vocal, drum & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment17 & synth, vocal, violin, viola, cello, oboe, horn, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment18 & vocal, violin, viola, cello, oboe, horn, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment19 & synth, vocal, violin, viola, cello, oboe, horn, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment20 & synth, vocal, violin, viola, cello, oboe, horn, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment21 & synth, vocal, violin, viola, cello, oboe, horn, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment22 & synth, vocal, violin, viola, cello, oboe, horn, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment23 & synth, vocal, violin, viola, cello, oboe, horn, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment24 & synth, vocal, violin, viola, cello, oboe, horn, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment25 & synth, vocal, violin, viola, cello, oboe, horn, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment26 & synth, vocal, violin, viola, cello, oboe, horn, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+		segment27 & synth, vocal, violin, viola, cello, oboe, horn, backing vocal, drum, bass & synth, vical, violin, cello, horn, drum, bass\\ \hline
+	\end{tabular}
+	\label{tab:instrument2}
+\end{table*}
+
+使用した分類モデルは'voice'や'vocal'といった分類は出来るが，'backing vocal'を抽出することは困難であった．
+そのため，実際は'vocal'が使用されているセグメントのほとんどで'backing vocal'も使用されているが，抽出された楽器構成では'backing vocal'が検出されていないという結果となった．
+'backing vocal'の抽出が困難な理由として，'backing vocal'の音色は声楽であり，PPANsでは'vocal'と区別することが出来ないためだと考えられる．
+
+しかし，データベースを見ると'backing vocal'は，'vocal'が使用されている楽曲のほとんどで使用されている．
+そのため，自音楽ジャンルの一致率を算出するうえで重要な要素とならないと考える．
+
+また，今回の結果から'oboe'といった音響特徴の識別が困難な楽器は抽出することが困難であると考えられる．
+その他の楽器に関しては高い楽器抽出精度といえる．
+
+次に，音楽ジャンル一致率を可視化したヒストグラムを，\figref{fig:EMPIREsjazz}，\figref{fig:EMPIREsrock}，\figref{fig:EMPIREsclassic}に示す．
+
+抽出された楽器構成リストから，segment1からsegment4，segment7，segment9，segment10，segment14からsegment27は，弦楽器である'violin'と'cello'が含まれている．
+弦楽器はデータベースの中でclassicに多く使用されており，classicの音楽ジャンル一致率が高くなると考えられる．
+
+また，segment3，segment4，segment9，segment14からsegment27には'horn'が含まれている．
+'horn'は，データベースの中でclassicのみに使用されている楽器である，classicの音楽ジャンル一致率がもっとも高くなるセグメントであると考えられる．
+
+出力されたヒストグラムは，この考察と一致しており，音楽ジャンルの一致率計算方法は適切であるといえる．
 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=\hsize]{fig/fig3-EMPIRE_short_jazz.png}
+	\includegraphics[width=\hsize]{fig/fig3-EMPIREsjazz.png}
 	\caption{EMPIREのjazzヒストグラム}
 	\label{fig:EMPIREjazz}
 \end{figure}
 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=\hsize]{fig/fig2-EMPIRE_short_rock.png}
+	\includegraphics[width=\hsize]{fig/fig2-EMPIREsrock.png}
 	\caption{EMPIREのrockヒストグラム}
 	\label{fig:EMPIRErock}
 \end{figure}
 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=\hsize]{fig/fig1-EMPIRE_short_classic.png}
+	\includegraphics[width=\hsize]{fig/fig1-EMPIREsclassic.png}
 	\caption{EMPIREのclassicヒストグラム}
 	\label{fig:EMPIREclassic}
 \end{figure}
 
-対象楽曲の冒頭5秒間の楽器構成はviolin，viola，cello，contrabass，oboe，faggot，corn，horn，vocal，drumである．
-そのため，classicの一致度が高くなることが考えられた．
-
-しかし，実装結果はclassicの一致度が0となっている．
-データベースのClassic楽曲にはvocalが使用されている楽曲がないため，このような結果が出ていると考えられる．
-
-また，冒頭5秒間のセグメントにて取得した楽器構成リストは，['vocal']のみである．
-対象楽曲で試用されている楽器数が多いため，テキスト生成の際に正確に楽器を抽出できなかったものと考えられる．
-
-
 
 \section{今後の課題}
-本システムでは音色の抽出にLP-MusicCapsを使用したが，楽器数が多いと正確に使用楽器が抽出できないという問題点があった．
-そのため，楽器数の少ない楽曲を対象楽曲とした際は正しい結果が得られたが，音数が多く複雑な楽曲を対象楽曲とした際に正しい実装結果が得られなかった．
-
-今後の課題として，音色の抽出方法の見直しがあげられる．
-
-また，今回は50曲×3の150曲のデータベースを使用した．
+今回は50曲×3の150曲のデータベースを使用した．
 しかし，より正確かつ汎用性の高いシステムになるために，データベースの拡大が必要であると考える．
 
+また，本システムでは楽器構成の抽出に音響分類モデル(PANNs)を使用した．
+その結果，'backing vocal'と'oboe'を抽出することが困難であった．
+これは，使用した分類モデルが'vocal'と区別できないため，また，音響特徴量の識別が困難な楽器であったためと考えられる．
+今回のデータベースの規模であれば音楽ジャンルの一致率算出に大きな影響は無かったが，今後データベースを拡大していくにあたって影響が出てくる可能性がある．
+そのため，より高精度な機械学習モデルを使用するなど，楽器抽出の改善も今後の課題であると考える．
 
 
 \section{おわりに}
 本研究では，楽曲中の時間推移に伴う音楽ジャンルの変化を分析・可視化するシステムを提案し，検証を行った．
 従来の1つの楽曲を1つの音楽ジャンルに分類する解析手法では捉えきれなかったジャンルの多様性に注目し，楽器構成の変化を時間軸に沿って解析することで，楽曲内でジャンルがどのように移り変わるかを可視化する新しいアプローチを示した．
 
-検証の結果，楽器構成がシンプルな楽曲では有効な結果を得られたが，楽器構成が複雑な楽曲では音色抽出の精度に課題があることが明らかになった．
-例えば、特定の楽器が正確に認識されないず，データベースとの一致率に影響を及ぼすケースが確認された．
-また，今回使用したデータベースは150曲と規模が限られており，データの多様性においても改善の余地があると考える．
+提案システムでは，分割した入力音声データを，PANNsを用いて楽器推定を行ったうえで，抽出された楽器構成をデータベースと照合して各ジャンルの一致率を計算し，楽曲内のジャンル変遷を可視化することが可能となった．
 
-今後の課題として，音色抽出アルゴリズムの改良や，より大規模で多様性に富んだデータベースの構築が挙げられる．
-これにより，複雑な楽曲への対応力を向上させるとともに，システムの汎用性と精度を高めることが可能となる．
+システム検証の結果時間経過に伴うジャンルの変化が明確に示され，本システムが音楽ジャンルの動的分析に有効であることが確認された．
+一方で、'backing vocal' や 'oboe' など一部の楽器の識別が困難である課題も見られた．
+
+今後の課題として，データベースの拡充によるジャンル分析の精度向上や，より高性能な機械学習モデルの適用により楽器抽出の精度向上があげられる．
+また，ユーザビリティの向上を図るためのインターフェース改良も検討すべき点である．
 
 本研究は，音楽ジャンル解析における新たな視点を提供し，音楽の多様性を捉える手法の一端を示した．
 本システムが音楽理解の深化や楽しみ方の多様化に寄与することを期待する．

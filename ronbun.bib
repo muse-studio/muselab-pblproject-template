@@ -1,3 +1,24 @@
+@misc{20o,
+  title = {{初心者にもわかりやすい「ラウドネス」曲線の見方とは？ {\textbar} 言葉と音 マサツムDTMブログ}},
+  year = {2020},
+  month = jul,
+  urldate = {2023-10-30},
+  abstract = {ラウドネス（Loudness）とは、人間が耳で感じる音の大きさのことをいいます。 ラウドネスメーターを活用すれば、低域の音など、人間では聴こえにくい周波数も考慮しつつ調整ができます。 ラジオやテレビの音声を聴感上統一させるために使われていましたが、音楽にも取り入れられています。},
+  howpublished = {https://masatsumu-dtm.com/word\_34-loudness/, https://masatsumu-dtm.com/word\_34-loudness/},
+  langid = {japanese}
+}
+
+@misc{21j,
+  title = {{librosaを使った音声データの分析事例}},
+  year = {2021},
+  month = feb,
+  journal = {Qiita},
+  urldate = {2023-12-18},
+  abstract = {\#1.はじめにlibrosaを利用して、音声データを分析する内容をご紹介します。\#2.音声データの理解y: 振幅データ 、リストとして返される。sr: Sampling rate [Hz]{\dots}},
+  howpublished = {https://qiita.com/kotai2003/items/69638e18b6d542fb275e},
+  langid = {japanese}
+}
+
 @article{Basili,
   title = {Classification of Musical Genre: A Machine Learning Approach.},
   shorttitle = {Classification of Musical Genre},
@@ -7,25 +28,8 @@
   journal = {Proceedings of the 5th International Conference on Music Information Retrieval},
   publisher = {ISMIR},
   address = {Barcelona, Spain},
-  doi = {10.5281/zenodo.1416754},
   urldate = {2025-01-01},
-  abstract = {[TODO] Add abstract here.},
-  file = {C:\Users\no2ri\Zotero\storage\Q975ZTCK\Basili 0001 et al. - 2004 - Classification of musical genre a machine learnin.pdf}
-}
-
-@article{bassline,
-  title = {{音響信号を対象としたベースラインからの音楽ジャンル解析}},
-  author = {佑亮, 土橋 and 鉄朗, 北原 and 晴弘, 片寄},
-  year = {2008},
-  month = feb,
-  journal = {情報処理学会研究報告音楽情報科学（MUS）},
-  volume = {2008},
-  number = {12(2008-MUS-074)},
-  pages = {217--224},
-  urldate = {2024-06-18},
-  abstract = {情報学広場 情報処理学会電子図書館},
-  langid = {japanese},
-  file = {C:\Users\no2ri\Zotero\storage\4QSVL64T\佑亮 et al. - 2008 - 音響信号を対象としたベースラインからの音楽ジャンル解析.pdf}
+  abstract = {[TODO] Add abstract here.}
 }
 
 @article{bassline,
@@ -40,7 +44,16 @@
   urldate = {2025-01-05},
   abstract = {情報学広場 情報処理学会電子図書館},
   langid = {japanese},
-  file = {C:\Users\no2ri\Zotero\storage\L5VK6MSE\佑亮 et al. - 2008 - 音響信号を対象としたベースラインからの音楽ジャンル解析.pdf}
+  note = {http://id.nii.ac.jp/1001/00055731/}
+}
+
+@article{Dixon02,
+  title = {The {{Performance Worm}}: {{Real Time Visualisation}} of {{Expression}} Based on {{Langner}}'s {{Tempo-Loudness Animation}}},
+  shorttitle = {The {{Performance Worm}}},
+  author = {Dixon, Simon and Goebl, Werner and Widmer, Gerhard},
+  year = {2002},
+  month = apr,
+  abstract = {In an expressive performance, a skilled musician shapes the music by continuously modulating aspects like tempo and loudness to communicate high level information such as musical structure and emotion. Although automatic modelling of this phenomenon remains beyond the current state of the art, we present a system that is able to measure tempo and dynamics of a musical performance and to track their development over time. The system accepts raw audio input, tracks tempo and dynamics changes in real time, and displays the development of these expressive parameters in an intuitive and aesthetically appealing graphical format which provides insight into the expressive patterns applied by skilled artists.}
 }
 
 @misc{EMPIRE,
@@ -50,8 +63,7 @@
   urldate = {2025-01-15},
   abstract = {Snow Manオフィシャルサイト。リリース情報・出演情報・メンバープロフィールなど。},
   howpublished = {http://mentrecording.jp/snowman/discography/detail.php?id=1020509},
-  langid = {japanese},
-  file = {C:\Users\no2ri\Zotero\storage\99ACYG8H\detail.html}
+  langid = {japanese}
 }
 
 @article{han,
@@ -66,12 +78,18 @@
   primaryclass = {cs},
   pages = {208--221},
   issn = {2329-9290, 2329-9304},
-  doi = {10.1109/TASLP.2016.2632307},
   urldate = {2025-01-30},
   abstract = {Identifying musical instruments in polyphonic music recordings is a challenging but important problem in the field of music information retrieval. It enables music search by instrument, helps recognize musical genres, or can make music transcription easier and more accurate. In this paper, we present a convolutional neural network framework for predominant instrument recognition in real-world polyphonic music. We train our network from fixed-length music excerpts with a single-labeled predominant instrument and estimate an arbitrary number of predominant instruments from an audio signal with a variable length. To obtain the audio-excerpt-wise result, we aggregate multiple outputs from sliding windows over the test audio. In doing so, we investigated two different aggregation methods: one takes the average for each instrument and the other takes the instrument-wise sum followed by normalization. In addition, we conducted extensive experiments on several important factors that affect the performance, including analysis window size, identification threshold, and activation functions for neural networks to find the optimal set of parameters. Using a dataset of 10k audio excerpts from 11 instruments for evaluation, we found that convolutional neural networks are more robust than conventional methods that exploit spectral features and source separation with support vector machines. Experimental results showed that the proposed convolutional network architecture obtained an F1 measure of 0.602 for micro and 0.503 for macro, respectively, achieving 19.6\% and 16.4\% in performance improvement compared with other state-of-the-art algorithms.},
   archiveprefix = {arXiv},
-  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning,Computer Science - Neural and Evolutionary Computing,Computer Science - Sound},
-  file = {C\:\\Users\\no2ri\\Zotero\\storage\\ZT6VCLH9\\Han et al. - 2017 - Deep convolutional neural networks for predominant instrument recognition in polyphonic music.pdf;C\:\\Users\\no2ri\\Zotero\\storage\\69PQW6FL\\1605.html}
+  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning,Computer Science - Neural and Evolutionary Computing,Computer Science - Sound}
+}
+
+@article{Hu10,
+  title = {{{WHEN LYRICS OUTPERFORM AUDIO FOR MUSIC MOOD CLASSIFICATION}}: {{A FEATURE ANALYSIS}}},
+  author = {Hu, Xiao and Downie, J Stephen},
+  year = {2010},
+  abstract = {This paper builds upon and extends previous work on multi-modal mood classification (i.e., combining audio and lyrics) by analyzing in-depth those feature types that have shown to provide statistically significant improvements in the classification of individual mood categories. The dataset used in this study comprises 5,296 songs (with lyrics and audio for each) divided into 18 mood categories derived from user-generated tags taken from last.fm. These 18 categories show remarkable consistency with the popular Russell's mood model. In seven categories, lyric features significantly outperformed audio spectral features. In one category only, audio outperformed all lyric features types. A fine grained analysis of the significant lyric feature types indicates a strong and obvious semantic association between extracted terms and the categories. No such obvious semantic linkages were evident in the case where audio spectral features proved superior.},
+  langid = {english}
 }
 
 @misc{ISMIR2023,
@@ -81,8 +99,42 @@
   urldate = {2025-01-06},
   abstract = {International Society for Music Information Retrieval Conference},
   howpublished = {https://ismir2023.ismir.net/},
-  langid = {american},
-  file = {C:\Users\no2ri\Zotero\storage\9LL2H6BN\ismir2023.ismir.net.html}
+  langid = {american}
+}
+
+@misc{Jehan,
+  title = {Creating {{Music}} by {{Listening}}},
+  author = {Jehan, Tristan},
+  journal = {MIT Media Lab},
+  urldate = {2025-01-22},
+  abstract = {Machines have the power and potential to make expressive music on their own. This thesis aims to computationally model the process of creating music using expe{\dots}},
+  howpublished = {https://www.media.mit.edu/publications/creating-music-by-listening/}
+}
+
+@article{Jiang,
+  title = {Saarland {{University}} and {{MPI Informatik}}},
+  author = {Jiang, Nanzhu},
+  abstract = {The development of automated methods for revealing the repetitive structure of a given music recording is of central importance in music information retrieval. In this paper, we present a novel scape plot representation that allows for visualizing repetitive structures of the entire music recording in a hierarchical, compact, and intuitive way. In a scape plot, each point corresponds to an audio segment identified by its center and length. As our main contribution, we assign to each point a color value so that two segment properties become apparent. Firstly, we use the lightness component of the color to indicate the repetitiveness of the encoded segment, where we revert to a recently introduced fitness measure. Secondly, we use the hue component of the color to reveal the relations between different segments. To this end, we introduce a novel grouping procedure that automatically maps related segments to similar hue values. By discussing a number of popular and classical music examples, we illustrate the potential and visual appeal of our representation and also indicate limitations.},
+  langid = {english}
+}
+
+@article{Jianga,
+  title = {Saarland {{University}} and {{MPI Informatik}}},
+  author = {Jiang, Nanzhu},
+  abstract = {The development of automated methods for revealing the repetitive structure of a given music recording is of central importance in music information retrieval. In this paper, we present a novel scape plot representation that allows for visualizing repetitive structures of the entire music recording in a hierarchical, compact, and intuitive way. In a scape plot, each point corresponds to an audio segment identified by its center and length. As our main contribution, we assign to each point a color value so that two segment properties become apparent. Firstly, we use the lightness component of the color to indicate the repetitiveness of the encoded segment, where we revert to a recently introduced fitness measure. Secondly, we use the hue component of the color to reveal the relations between different segments. To this end, we introduce a novel grouping procedure that automatically maps related segments to similar hue values. By discussing a number of popular and classical music examples, we illustrate the potential and visual appeal of our representation and also indicate limitations.},
+  langid = {english}
+}
+
+@article{Liao08,
+  title = {感性に基づくクラシック音楽の分類},
+  author = {遼, 平江 and 隆司, 西},
+  year = {2008},
+  journal = {日本音響学会誌},
+  volume = {64},
+  number = {10},
+  pages = {607--615},
+  abstract = {クラシック音楽を聴いて受ける印象の主因子を明らかにし,個人の感性に合わせた印象の自動推定システムを提案する。人間が音楽を聴いて受ける印象に対し,因子分析を行うことによって,印象空間の次元数と意味付けを検討する。音の大きさ,音色,リズムに対応した物理量を抽出し,印象の自動推定を行うシステムとして印象ごとにニューラルネットワークを構築する。構築したシステムに対して,未知のクラシック音楽を与え,印象の自動推定を行う。印象空間全体を用いて楽曲の印象推定を行うことにより,連続的に音楽の印象が推定できることを示す。},
+  keywords = {Factor analysis,Mel-frequency cepstrum coefficient,Mood classification,Neural network,Psychological factor,ニューラルネットワーク,メルケプストラム係数,因子分析,心理因子,感性分類}
 }
 
 @misc{lilac,
@@ -99,8 +151,22 @@
   title = {Lp {{Music Caps}} - a {{Hugging Face Space}} by Seungheondoh},
   urldate = {2024-08-02},
   abstract = {Discover amazing ML apps made by the community},
-  howpublished = {https://huggingface.co/spaces/seungheondoh/LP-Music-Caps-demo},
-  file = {C:\Users\no2ri\Zotero\storage\29ZUEDT8\LP-Music-Caps-demo.html}
+  howpublished = {https://huggingface.co/spaces/seungheondoh/LP-Music-Caps-demo}
+}
+
+@article{melody,
+  title = {{メロディラインによるジャンル判別}},
+  author = {{鈴木 崇也} and {長谷川 智史} and {穴田 一}},
+  year = {2011},
+  month = oct,
+  journal = {情報処理学会研究報告音楽情報科学（MUS）},
+  volume = {2011-MUS-92},
+  number = {3},
+  pages = {1--6},
+  urldate = {2024-04-29},
+  abstract = {情報学広場 情報処理学会電子図書館},
+  langid = {japanese},
+  note = {http://id.nii.ac.jp/1001/00077636/}
 }
 
 @misc{percino,
@@ -110,12 +176,103 @@
   month = may,
   eprint = {1405.5057},
   primaryclass = {physics},
-  doi = {10.1371/journal.pone.0115255},
   urldate = {2025-01-30},
   abstract = {Listening habits are strongly influenced by two opposing aspects, the desire for variety and the demand for uniformity in music. In this work we quantify these two notions in terms of musical instrumentation and production technologies that are typically involved in crafting popular music. We assign a "complexity value" to each music style. A style is complex if it shows the property of having both high variety and low uniformity in instrumentation. We find a strong inverse relation between variety and uniformity of music styles that is remarkably stable over the last half century. Individual styles, however, show dramatic changes in their "complexity" during that period. Styles like "new wave" or "disco" quickly climbed towards higher complexity in the 70s and fell back to low complexity levels shortly afterwards, whereas styles like "folk rock" remained at constant high complexity levels. We show that changes in the complexity of a style are related to its number of sales and to the number of artists contributing to that style. As a style attracts a growing number of artists, its instrumentational variety usually increases. At the same time the instrumentational uniformity of a style decreases, i.e. a unique stylistic and increasingly complex expression pattern emerges. In contrast, album sales of a given style typically increase with decreasing complexity. This can be interpreted as music becoming increasingly formulaic once commercial or mainstream success sets in.},
   archiveprefix = {arXiv},
-  keywords = {Computer Science - Social and Information Networks,Physics - Physics and Society},
-  file = {C\:\\Users\\no2ri\\Zotero\\storage\\W5PCWPH4\\Percino et al. - 2014 - Instrumentational complexity of music genres and why simplicity sells.pdf;C\:\\Users\\no2ri\\Zotero\\storage\\8EPULJR9\\1405.html}
+  keywords = {Computer Science - Social and Information Networks,Physics - Physics and Society}
+}
+
+@article{Repp98,
+  title = {A Microcosm of Musical Expression. {{I}}. {{Quantitative}} Analysis of Pianists' Timing in the Initial Measures of {{Chopin}}'s {{Etude}} in {{E}} Major},
+  author = {Repp, Bruno},
+  year = {1998},
+  month = sep,
+  journal = {The Journal of the Acoustical Society of America},
+  volume = {104},
+  pages = {1085--100},
+  abstract = {Patterns of expressive timing were measured in bars 1-5 of 115 commercially recorded performances of Chopin's Etude in E major, op. 10, No. 3. These patterns were subjected to principal components analysis, which suggested at least four independent "timing strategies": (1) major ritards at the ends of melodic gestures; (2) acceleration within some of these gestures, without final ritards; (3) extreme lengthening of the initial downbeat; and (4) ritards between as well as within melodic gestures. Strategies 1 and 4 respond in different ways to the melodic-rhythmic grouping structure of the music, and strategy 3 merely represents a local emphasis. Strategy 2 is the one most difficult to rationalize; it does not seem to represent an alternative structural interpretation of the music but rather an alternative gestural shaping. Each individual pianist's timing pattern could be described as a weighted combination of these four strategies plus idiosyncratic variation. A wide variety of combinations was represented, and no two individual patterns were exactly the same. In addition, there was a wide range of basic tempi and of degrees of tempo modulation. There were no strong relationships between any of these variables and sociocultural characteristics of the artists, although some weak trends were observed.}
+}
+
+@article{Repp99,
+  title = {A Microcosm of Musical Expression: {{II}}. {{Quantitative}} Analysis of Pianists' Dynamics in the Initial Measures of {{Chopin}}'s {{Etude}} in {{E}} Major},
+  shorttitle = {A Microcosm of Musical Expression},
+  author = {Repp, Bruno},
+  year = {1999},
+  month = apr,
+  journal = {The Journal of the Acoustical Society of America},
+  volume = {105},
+  pages = {1972--88},
+  abstract = {Patterns of expressive dynamics were measured in bars 1-5 of 115 commercially recorded performances of Chopin's Etude in E major, op. 10, No. 3. The grand average pattern (or dynamic profile) was representative of many performances and highly similar to the average dynamic profile of a group of advanced student performances, which suggests a widely shared central norm of expressive dynamics. The individual dynamic profiles were subjected to principal components analysis, which yielded Varimax-rotated components, each representing a different, nonstandard dynamic profile associated with a small subset of performances. Most performances had dynamic patterns resembling a mixture of several components, and no clustering of of performances into distinct groups was apparent. Some weak relationships of dynamic profiles with sociocultural variables were found, most notably a tendency of female pianists to exhibit a greater dynamic range in the melody. Within the melody, there were no significant relationships between expressive timing [Repp, J. Acoust. Soc. Am. 104, 1085-1100 (1998)] and expressive dynamics. These two important dimensions seemed to be controlled independently at this local level and thus offer the artist many degrees of freedom in giving a melody expressive shape.}
+}
+
+@misc{ringojam,
+  title = {{Mrs. GREEN APPLE OFFICIAL FAN CLUB 「Ringo Jam」}},
+  journal = {Mrs. GREEN APPLE OFFICIAL FAN CLUB 「Ringo Jam」},
+  urldate = {2024-11-12},
+  abstract = {Mrs. GREEN APPLEのオフィシャルサイト・ファンクラブサイト。2024年3月フルリニューアルオープン！最新情報やファンクラブ限定チケット先行受付など、今後も続々と新コンテンツが登場予定です。},
+  howpublished = {https://mrsgreenapple.com/},
+  langid = {japanese}
+}
+
+@misc{SanMu,
+  title = {{{PEVI}}：{{Scapeplot}} を利用したクラシック音楽の 演奏表情検索・分析インタフェース},
+  author = {三木, 翔太 and 馬場, 隆 and 片寄, 晴弘},
+  urldate = {2024-01-10},
+  howpublished = {https://www.interaction-ipsj.org/archives/paper2013/data/Interaction2013/interactive/data/pdf/1EXB-09.pdf}
+}
+
+@article{Sapp,
+  title = {Harmonic {{Visualizations}} of {{Tonal Music}}},
+  author = {Sapp, Craig Stuart},
+  abstract = {Multi-timescale visualization techniques for displaying the output from key-finding algorithms are presented in this paper. The horizontal axis of the key graphs represents time in the score, while the vertical axis represents the duration of an analysis window used to select music for the key-finding algorithm. Each analysis window result is shaded according to the output key's tonic pitch. The resulting diagrams can be used to compare differences between key-finding algorithms at different time scales and to view the harmonic structure and relationships between key regions in a musical composition.},
+  langid = {english}
+}
+
+@article{Sapp05,
+  title = {Visual Hierarchical Key Analysis},
+  author = {Sapp, Craig Stuart},
+  year = {2005},
+  month = oct,
+  journal = {Computers in Entertainment},
+  volume = {3},
+  number = {4},
+  pages = {1--19},
+  issn = {1544-3574},
+  urldate = {2023-12-08},
+  abstract = {Tonal music is often conceived of as progressing through a sequence of key regions, usually starting and ending in the tonic key, with a journey away from the tonic key somewhere in the middle of the piece. This article presents a visual method of displaying the musical key structure of a composition in a single picture. The hierarchical plots can also show the relative strength of these key regions and how they develop out of the chordal substrate of the music.},
+  langid = {english}
+}
+
+@inproceedings{Sapp07,
+  title = {Comparative {{Analysis}} of {{Multiple Musical Performances}}},
+  author = {Sapp, Craig},
+  year = {2007},
+  month = sep,
+  abstract = {A technique for comparing numerous performances of an identical selection of music is described. The basic methodology is to split a one-dimensional sequence into all possible sequential sub-sequences, perform some op- eration on these sequences, and then display a summary of the results as a two-dimensional plot; the horizontal axis being time and the vertical axis being sub-sequence length (longer lengths on top by convention). Most types of timewise data extracted from performances can be com- pared with this technique, although the current focus is on beat-level information for tempo and dynamics as well as commixtures of the two. The primary operation used on each sub-sequence is correlation between a reference per- formance and analogous segments of other performances, then selecting the best correlated performances for the sum- mary display. The result is a useful navigational aid for coping with large numbers of performances of the same piece of music and for searching for possible influence between performances.}
+}
+
+@inproceedings{Sapp08,
+  title = {Hybrid {{Numeric}}/{{Rank Similarity Metrics}} for {{Musical Performance Analysis}}},
+  author = {Sapp, Craig},
+  year = {2008},
+  month = sep
+}
+
+@article{Savelsberg20,
+  title = {Visualizing the {{Structure}} of {{Music}}},
+  author = {Savelsberg, Job},
+  year = {2020},
+  month = jan
+}
+
+@misc{ShuLiQingBaoKeXueKeLiXueXiuShi,
+  title = {Job {{SAVELSBERG}} {\textbar} {{Master}}'s {{Student}} {\textbar} {{Master}} of {{Science}} {\textbar} {{Eindhoven University}} of {{Technology}}, {{Eindhoven}} {\textbar} {{TUE}} {\textbar} {{Department}} of {{Mathematics}} and {{Computer Science}} {\textbar} {{Research}} Profile},
+  author = {数理情報科学科理学修士, ジョブ・サヴェルスバーグアイントホーフェン工科大学 {\textbar}火曜 {$\cdot$}},
+  journal = {ResearchGate},
+  urldate = {2023-12-05},
+  abstract = {Interested in visualization of music structure. Currently working on visualization and analysis of acoustics.},
+  howpublished = {https://www.researchgate.net/profile/Job\_Savelsberg},
+  langid = {english}
 }
 
 @misc{spotify,
@@ -124,23 +281,18 @@
   urldate = {2025-01-30},
   abstract = {Spotifyは数千万以上もの曲へのアクセスを提供するデジタル音楽配信サービスです。},
   howpublished = {https://open.spotify.com/intl-ja},
-  langid = {japanese},
-  file = {C:\Users\no2ri\Zotero\storage\P2HR85HF\intl-ja.html}
+  langid = {japanese}
 }
 
-@article{Suzuki11,
-  title = {{メロディラインによるジャンル判別}},
-  author = {崇也, 鈴木 and 智史, 長谷川 and 一, 穴田},
-  year = {2011},
-  month = oct,
-  journal = {研究報告音楽情報科学（MUS）},
-  volume = {2011-MUS-92},
-  number = {3},
-  pages = {1--6},
-  urldate = {2024-06-18},
-  abstract = {情報学広場 情報処理学会電子図書館},
-  langid = {japanese},
-  file = {C:\Users\no2ri\Zotero\storage\CKXCIG45\崇也 et al. - 2011 - メロディラインによるジャンル判別.pdf}
+@article{Stamatatos05,
+  title = {Automatic {{Identifi}} Cation of {{Music Performers}} with {{Learning Ensembles}}},
+  author = {Stamatatos, Efstathios and Widmer, Gerhard},
+  year = {2005},
+  month = jun,
+  journal = {Artificial Intelligence},
+  volume = {165},
+  pages = {37--56},
+  abstract = {This article addresses the problem of identifying the most likely music performer, given a set of performances of the same piece by a number of skilled candidate pianists. We propose a set of very simple features for representing stylistic characteristics of a music performer, introducing `norm-based' features that relate to a kind of `average' performance. A database of piano performances of 22 pianists playing two pieces by Fr{\'e}d{\'e}ric Chopin is used in the presented experiments. Due to the limitations of the training set size and the characteristics of the input features we propose an ensemble of simple classifiers derived by both subsampling the training set and subsampling the input features. Experiments show that the proposed features are able to quantify the differences between music performers. The proposed ensemble can efficiently cope with multi-class music performer recognition under inter-piece conditions, a difficult musical task, displaying a level of accuracy unlikely to be matched by human listeners (under similar conditions).}
 }
 
 @article{takumi,
@@ -156,5 +308,89 @@
   urldate = {2025-01-30},
   abstract = {情報学広場 情報処理学会電子図書館},
   langid = {japanese},
-  file = {C:\Users\no2ri\Zotero\storage\94QE3AI4\卓見 et al. - 2020 - INSTRUDIVE：楽器編成の自動認識に基づく楽曲探索システム.pdf}
+  note = {https://ipsj.ixsq.nii.ac.jp/ej/index.php?active\_action=repository\_view\_main\_item\_detail\&page\_id=13\&block\_id=8\&item\_id=204323\&item\_no=1}
+}
+
+@article{Tzanetakis02,
+  title = {Musical Genre Classification of Audio Signals},
+  author = {Tzanetakis, G. and Cook, P.},
+  year = {2002},
+  month = jul,
+  journal = {IEEE Transactions on Speech and Audio Processing},
+  volume = {10},
+  number = {5},
+  pages = {293--302},
+  issn = {1558-2353},
+  urldate = {2025-01-22},
+  abstract = {Musical genres are categorical labels created by humans to characterize pieces of music. A musical genre is characterized by the common characteristics shared by its members. These characteristics typically are related to the instrumentation, rhythmic structure, and harmonic content of the music. Genre hierarchies are commonly used to structure the large collections of music available on the Web. Currently musical genre annotation is performed manually. Automatic musical genre classification can assist or replace the human user in this process and would be a valuable addition to music information retrieval systems. In addition, automatic musical genre classification provides a framework for developing and evaluating features for any type of content-based analysis of musical signals. In this paper, the automatic classification of audio signals into an hierarchy of musical genres is explored. More specifically, three feature sets for representing timbral texture, rhythmic content and pitch content are proposed. The performance and relative importance of the proposed features is investigated by training statistical pattern recognition classifiers using real-world audio collections. Both whole file and real-time frame-based classification schemes are described. Using the proposed feature sets, classification of 61\% for ten musical genres is achieved. This result is comparable to results reported for human musical genre classification.},
+  keywords = {Computer science,Cultural differences,Feature extraction,Humans,Instruments,Multiple signal classification,Music information retrieval,Pattern recognition,Signal analysis,Wavelet analysis}
+}
+
+@article{Widmer03,
+  title = {In {{Search}} of the {{Horowitz Factor}}},
+  author = {Widmer, Gerhard and Dixon, Simon and Goebl, Werner and Pampalk, Elias and Tobudic, Asmir},
+  year = {2003},
+  month = sep,
+  journal = {AI Magazine},
+  volume = {24},
+  pages = {111--130},
+  abstract = {The paper gives an overview of an inter-disciplinary research project whose goal is to elucidate the complex phenomenon of expressive music performance with the help of machine learning and automated discovery methods. The general research questions that guide the project are laid out, and some of the most important results achieved so far are briey summarized (with an emphasis on the most recent and still very speculative work). A broad view of the discovery process is given, from data acquisition issues through data visualization to inductive model building and pattern discovery. It is shown that it is indeed possible for a machine to make novel and interesting discoveries even in a domain like music. The report closes with a few general lessons learned and with the identi cation of a number of open and challenging research problems.}
+}
+
+@article{XinQi09,
+  title = {{Random Forestを用いた音楽ジャンル分類}},
+  author = {新妻, 雅弘},
+  year = {2009},
+  month = dec,
+  journal = {情報処理学会論文誌},
+  volume = {50},
+  number = {12},
+  pages = {2910--2922},
+  publisher = {情報処理学会},
+  urldate = {2023-12-18},
+  abstract = {本論文はRandom Forestを分類器とし，高次元の特徴量を用いた音楽ジャンル分類について述べる．従来の研究は，特定の音楽ジャンルに限られた特徴量，単旋律に関わる特徴量のみを用いており，広範な音楽ジャンル分類には対応できない．また，特徴量すべてについてチューニングを行うことで高い精度を得ている研究も多いが，ある音楽ジャンル分類に最適化したチューニングは過学習の問題からそのほかの音楽ジャンル分類にはそのまま適用できない．そこで本研究では，広範なジャンルを考慮した1,022次元の特徴量を用い，高次元，低サンプル数の問題に強いとされるRandom Forestを分類器とすることでチューニングをすることなく幅広い音楽ジャンルの分類に対応する手法を提案する．また，Out-Of-Bagデータを用いることで分類の際に重要な役割を果たしている特徴量を分析し，音楽ジャンル分類というタスクのメカニズムの解明に足がかりを与える．実験の結果，提案手法による分類精度はRootデータセットに対して97\%，Leafデータセットに対して84\%となり，チューニングを行っている先行研究と同等以上となった．また，訓練データに用いるサンプル数と精度の関係を検証した結果，提案手法がサンプル数の減少に対して優れた性能を持つことが示された．さらに，Out-Of-Bagデータを用いた変数の重要性推定に基づいた特徴量選択により，RootデータセットおよびLeafデータセットの各々のジャンル分類に固有な特徴量を分析できることを示した． This paper proposes a music genre classification method using highdimensional features and Random Forest. Most of the previous work uses features designed to be adapted to only a limited range of music genres because of the data sparseness problem and tunes parameters in order to achieve high accuracy. However, feature selection often leads to over fitting and tuning parameters each time is not practical. In this paper, we propose music genre classification method using 1,022-dimensional features designed to be adapted to a wide range of music genres and Random Forest that easily handles highdimensional features. Moreover, variable importance is estimated using out-ofbag data to clarify the mechanism of music genre classification. The proposed method has achieved 97\% accuracy in root genre classification and 84\% in leaf genre classification, which are favorable compared to other methods especially when the number of training samples is small. Moreover, variable importance estimation using out-of-bag data sheds new light on mechanism of music genre classification.},
+  langid = {japanese},
+  note = {https://cir.nii.ac.jp/crid/1050282812875877632}
+}
+
+@article{ZhenXiao02,
+  title = {{RWC研究用音楽データベース：クラシック音楽データベースとジャズ音楽データベース}},
+  author = {真孝, 後藤 and 博樹, 橋口 and 拓一, 西村 and 隆一, 岡},
+  year = {2002},
+  month = feb,
+  journal = {情報処理学会研究報告音楽情報科学（MUS）},
+  volume = {2002},
+  number = {14(2001-MUS-044)},
+  pages = {25--32},
+  urldate = {2023-12-05},
+  abstract = {情報学広場 情報処理学会電子図書館},
+  langid = {japanese},
+  note = {https://ipsj.ixsq.nii.ac.jp/ej/index.php?active\_action=repository\_view\_main\_item\_detail\&page\_id=13\&block\_id=8\&item\_id=56150\&item\_no=1}
+}
+
+@article{ZhenXiao02a,
+  title = {{RWC研究用音楽データベース：音楽ジャンルデータベースと楽器音データベース}},
+  author = {真孝, 後藤 and 博樹, 橋口 and 拓一, 西村 and 隆一, 岡},
+  year = {2002},
+  month = may,
+  journal = {情報処理学会研究報告音楽情報科学（MUS）},
+  volume = {2002},
+  number = {40(2002-MUS-045)},
+  pages = {19--26},
+  urldate = {2023-12-05},
+  abstract = {情報学広場 情報処理学会電子図書館},
+  langid = {japanese},
+  note = {https://ipsj.ixsq.nii.ac.jp/ej/index.php?active\_action=repository\_view\_main\_item\_detail\&page\_id=13\&block\_id=8\&item\_id=56126\&item\_no=1}
+}
+
+@misc{zotero-12647,
+  title = {{{C4S3}}\_{{ScapePlot}}},
+  urldate = {2023-12-11},
+  howpublished = {https://www.audiolabs-erlangen.de/resources/MIR/FMP/C4/C4S3\_ScapePlot.html}
+}
+
+@misc{zotero-12801,
+  title = {The {{Mazurka Project}}},
+  urldate = {2024-01-10},
+  howpublished = {http://mazurka.org.uk/}
 }
