@@ -1,8 +1,8 @@
 %  !TEX root = _main.tex
 \section{VOICEPEAKによる発話イントネーションの取得}\label{sec:huroku1}
 
-本文\ref{sec:3.3}節で記した，発話イントネーションの取得方法について記す．\red{赤字の部分が追加です（ささき）}\par
-\red{VOICEPEAKのイントネーションは，\figref{henkan_frow}の左図のように相対的な値となっている．そこで，\figref{henkan_frow}の右図のように，フレーズのイントネーションの全体の幅を取得することにより，イントネーションの割合を取得することができる．}\par
+本文\ref{sec:3.3}節で記した，発話イントネーションの取得方法について記す．\par
+VOICEPEAKのイントネーションは，\figref{henkan_frow}の左図のように相対的な値となっている．そこで，\figref{henkan_frow}の右図のように，フレーズのイントネーションの全体の幅を取得することにより，イントネーションの割合を取得することができる．\par
 
 \begin{figure}
 \centering
@@ -11,7 +11,7 @@
 \label{henkan_frow}
 \end{figure}
 
-\red{取得の概要は以上である．}この概要に基づき，詳しい取得の順序を示す．詳しい取得の順序は下記の通りである．
+取得の概要は以上である．この概要に基づき，詳しい取得の順序を示す．詳しい取得の順序は下記の通りである．
 \begin{musequote}
 \begin{enumerate}
 \renewcommand{\labelenumi}{\arabic{enumi})}
@@ -24,21 +24,8 @@
 \item パーセントの最小値と最大値を0\%，100\%とし，その他の値の位置をパーセントで算出する
 \end{enumerate}
 \end{musequote}
-%この順序に則り，発話イントネーションを取得していく．\par
-%まず，VOICEPEAKで“あなたにあいたくて”“ひかりのほう”の合成音声のプロジェクトファイルを作成した．これをテキストエディタで開き，成形すると，終端にNull文字のあるJSONファイルとなる．\par
-%実際に成形した後のコードの一部が\figref{json_seikei}である．この図は「あなたにあいたくて」と言わせたときのJSONファイル「な」の部分で，各項目で合成音声の声音を制御している．\par
-%イントネーションに関わる部分は，\figref{json_seikei}の“i”である．\figref{json_seikei}では値が変化しているが，イントネーションのデフォルト値は0となっている．例えば，“ひかりのほう”のデフォルトのイントネーションのGUI上の位置は\figref{voicepeak}のようになっているが，JSONファイルで値を見ると0となっている．\par
-%そこで，VOICEPEAK上でフレーズのイントネーションを最高値と最低値を出し，それを比較して
-%\figref{hikui}はVOICEPEAK上でイントネーションの値を最も低くしたもの，\figref{takai}はVOICEPEAK上でイントネーションの値を最も高くしたものである．\figref{hikui}の“i”を見てみると，“-1.55575704574585”，\figref{takai}の“i”を見てみると，“4.44424295425415”となっており，絶対値同士を足すと6となる．他の値についても同様であり，VOICEPEAKにおけるイントネーションの設定は，幅が6から-6の間で設定されているとわかる．\par
-
-%この順序に則り，発話イントネーションを取得していく．\par
-%まず，VOICEPEAKで“あなたにあいたくて”“ひかりのほう”の合成音声のプロジェクトファイルを作成した．作成したプロジェクトファイルはこれをテキストエディタで開き，成形すると，終端にNull文字のあるJSONファイルとなる．\par
-%実際に成形した後のコードの一部が\figref{json_seikei}である．この図は「あなたにあいたくて」と言わせたときのJSONファイル「な」の部分で，各項目で合成音声の声音を制御している．イントネーションに関わる部分は，\figref{json_seikei}の“i”である．\par
-%\figref{json_seikei}では値が変化しているが，イントネーションのデフォルト値は0となっている．例えば，“ひかりのほう”のデフォルトのイントネーションのGUI上の位置は\figref{voicepeak}のようになっているが，JSONファイルで値を見ると0となっている．\par
-%\red{この0の値が，全体で見た時にどの位置にあるかが知りたいため，\figref{intone_vp}のように，VOICEPEAK上でイントネーションの最低値と最高値を出し，イントネーションがどの幅で調整されているのかを調べた．(これで伝わりますか？（ささき）}\par
-
 この順序に則り，発話イントネーションを取得していく．\par
-まず，VOICEPEAKで“あなたにあいたくて”“ひかりのほう”の合成音声のプロジェクトファイルを作成した．\red{作成したプロジェクトファイルのイントネーションは\figref{intone_vp}のようになっている．\figref{intone_vp}のようなプロジェクトファイルを作成することにより，イントネーションの全体の幅を取得することができる．}
+まず，VOICEPEAKで“あなたにあいたくて”“ひかりのほう”の合成音声のプロジェクトファイルを作成した．作成したプロジェクトファイルのイントネーションは\figref{intone_vp}のようになっている．\figref{intone_vp}のようなプロジェクトファイルを作成することにより，イントネーションの全体の幅を取得することができる．
 
 \begin{figure}[t]
     \begin{minipage}[t]{0.49\columnwidth}
@@ -61,8 +48,7 @@
 \end{figure}
 
 作成したプロジェクトファイルをテキストエディタで開き，成形すると，終端にNull文字のあるJSONファイルとなる．実際に成形した後のコードの一部が\figref{json_seikei}である．\par
-この図は“ひかりのほう”と言わせたときのJSONファイル“ひ”の部分で，各項目で合成音声の声音を制御している．イントネーションに関わる部分は，\figref{json_seikei}の“i”である．\figref{hikui}が\figref{intone_minus}の“ひ”（イントネーションの最低値），\figref{takai}が\figref{intone_plus}の“ひ”（イントネーションの最高値）となっている．\par
-\red{ここから下みてほしいです（ささき）}
+この図は“ひかりのほう”と言わせたときのJSONファイル“ひ”の部分で，各項目で合成音声の声音を制御している．イントネーションに関わる部分は，\figref{json_seikei}の“i”である．\figref{hikui}が\figref{intone_minus}の「ひ」（イントネーションの最低値），\figref{takai}が\figref{intone_plus}の「ひ」（イントネーションの最高値）となっている．\par
 他の箇所に関しても同様に値を確認し，各単音の幅を調べた．すると，どの値においても6，または6にかなり近い値となったことが，本文の\figref{intone_henkan}の“イントネーションの幅”からもわかる．そのため，本研究では幅を6として扱う．
 %\figref{intone_vp}のように，VOICEPEAK上でイントネーションの最低値と最高値を出し，イントネーションがどの幅で調整されているのかを調べた．これで伝わりますか？（ささき）\par
 
@@ -90,6 +76,159 @@
 幅を6としたため，各イントネーションの絶対値および割合を求めていく．\par
 各イントネーションの絶対値については，各イントネーションの最低値の絶対値であるため，最低値からマイナスの記号をとった値が絶対値となる．\par
 絶対値を取得できたため，それが全体6からみてどの位置にあるかの割合，及び最低値と最高値を0\%，100\%としたときの割合を出していく．\par
-結果が本文の\figref{intone_henkan}の“パーセント”及び“パーセント（真）”である．本研究では，“パーセント（真）”の項を使用した．
+結果が本文の\figref{intone_henkan}の“パーセント”及び“パーセント（真）”である．本研究では，「パーセント（真）」を使用した．
 
-\red{加筆こんな感じでいいですか？（ささき）}
+
+\section{男女別の音高-拍のグラフ}
+「あなたにあいたくて」「ひかりのほう」の男女別の音高-拍グラフを，\figref{all}，\figref{seibetu_otoko}，\figref{seibetu_onna}，\figref{seibetu_kongo}に示す．
+
+\begin{figure*}[t]
+  \centering
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/anata/seibetu.png}
+    \subcaption{“あなたにあいたくて”}
+    \label{a_all}
+  \end{minipage}
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/hikari/seibetu.png}
+    \subcaption{“ひかりのほう”}
+    \label{h_all}
+  \end{minipage}
+  \caption{性別ごとに色分けしたもの}
+  \label{all}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/anata/seibetu_otoko.png}
+    \subcaption{“あなたにあいたくて”}
+    \label{a_otoko}
+  \end{minipage}
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/hikari/seibetu_otoko.png}
+    \subcaption{“ひかりのほう”}
+    \label{h_otoko}
+  \end{minipage}
+  \caption{男性が歌っているものを色分けしたもの}
+  \label{seibetu_otoko}
+\end{figure*}
+
+
+\begin{figure*}[t]
+  \centering
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/anata/seibetu_onna.png}
+    \subcaption{“あなたにあいたくて”}
+    \label{a_onna}
+  \end{minipage}
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/hikari/seibetu_onna.png}
+    \subcaption{“ひかりのほう”}
+    \label{h_onna}
+  \end{minipage}
+  \caption{女性が歌っているものを色分けしたもの}
+  \label{seibetu_onna}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/anata/seibetu_kongo.png}
+    \subcaption{“あなたにあいたくて”}
+    \label{a_kongo}
+  \end{minipage}
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/hikari/seibetu_kongo.png}
+    \subcaption{“ひかりのほう”}
+    \label{h_kongo}
+  \end{minipage}
+  \caption{男女混合で歌っているものを色分けしたもの}
+  \label{seibetu_kongo}
+\end{figure*}
+
+\section{年代別の音高-拍グラフ}
+「あなたにあいたくて」「ひかりのほう」の年代別の音高-拍グラフを，\figref{a_nendai_1970}，\figref{a_nendai_1980}，\figref{a_nendai_1990}，\figref{nendai_2000}，\figref{nendai_2010}，\figref{nendai_2020}に示す．
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{fig/anata/ne_1970.png}
+  \caption{1970年の割合（あ）}
+  \label{a_nendai_1970}
+\end{figure}
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{fig/anata/ne_1980.png}
+  \caption{1980年の割合（あ）}
+  \label{a_nendai_1980}
+\end{figure}
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{fig/anata/ne_1990.png}
+  \caption{1990年の割合（あ）}
+  \label{a_nendai_1990}
+\end{figure}
+
+\begin{figure*}[t]
+  \centering
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/anata/ne_2000.png}
+    \subcaption{“あなたにあいたくて”}
+    \label{a_nendai_2000}
+  \end{minipage}
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/hikari/ne_2000.png}
+    \subcaption{“ひかりのほう”}
+    \label{h_nendai_2000}
+  \end{minipage}
+  \caption{2000年代の割合}
+  \label{nendai_2000}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/anata/ne_2010.png}
+    \subcaption{“あなたにあいたくて”}
+    \label{a_nendai_2010}
+  \end{minipage}
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/hikari/ne_2010.png}
+    \subcaption{“ひかりのほう”}
+    \label{h_nendai_2010}
+  \end{minipage}
+  \caption{2010年代の割合}
+  \label{nendai_2010}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/anata/ne_2020.png}
+    \subcaption{“あなたにあいたくて”}
+    \label{a_nendai_2020}
+  \end{minipage}
+  \begin{minipage}{0.49\hsize}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/hikari/ne_2020.png}
+    \subcaption{“ひかりのほう”}
+    \label{h_nendai_2020}
+  \end{minipage}
+  \caption{2020年代の割合}
+  \label{nendai_2020}
+\end{figure*}
