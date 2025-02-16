@@ -10,11 +10,14 @@
 % （LuaTeXを使う場合は \documentclass[dvipdfmx,... の dvipdfmx, を消す）
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%↓必要なパッケージを追加してください．
+%%↓必要なパッケージを追加してください．∫
 \usepackage{mathtools,amssymb}
 \usepackage{latexsym}
 \usepackage{newtxtext,newtxmath}
 \usepackage[utf8]{inputenc} 	%波ダッシュ（〜）を表記できるようにする
+\usepackage[normalem]{ulem} % \soutを有効化
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\sectionmargin}{\vspace{6pt}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -39,6 +42,8 @@
 
 
 % 参考文献
+\sectionmargin
+\small
 \bibliographystyle{muselabunsrt} % bstファイルの名前
 \bibliography{ronbun} % .bibファイルの名前（Zoteroからエクスポートして作る）
 
