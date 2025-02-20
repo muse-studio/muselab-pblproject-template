@@ -45,9 +45,9 @@
 % ---- この論文オリジナル ------------
 % 何度も使う固有名詞や変数などを定義しておくと後で修正・変更が楽
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
-%\newcommand{\vpeak}{v_{\text{peak}}}
-%\newcommand{\vstart}{v_{\text{start}}}
-%\newcommand{\vend}{v_{\text{end}}}
+\usepackage{datetime}
+\newdateformat{japanesedate}{\THEYEAR 年 \THEMONTH 月 \THEDAY 日}
+\renewcommand{\revicedate}{\japanesedate\today} % 審査会後の最終提出日
 % ------------------------------------------
 
 
