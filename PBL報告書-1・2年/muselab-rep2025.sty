@@ -7,7 +7,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{muselab}
 % [2012/03/26-05/02 v1.00-2.00 muselabTECH.STY]
-[2012/06/01 v3.00 muselabTECH.STY]
+[2012/06/01 v3.00 muselabTECH3.STY]
 
 \RequirePackage{ipsjtech}
 
@@ -16,24 +16,24 @@
 \newcommand{\cut}[1]{\textcolor{red}{\sout{\textcolor{black}{#1}}}}
 
 % ==============================================
-% 年度・提出日・改訂日の設定
+% 定数
 % ==============================================
-\input{../_date} 
+\input{../_date}
 % ==============================================
 % ヘッダ
 % ==============================================
 %%
 \def\SIGHead{\ifDS@english%
       %{IPSJ SIG Technical Report}%
-   \else 福知山公立大学情報学部 地域情報PBLプロジェクト報告書\fi}%%
+   \else 福知山公立大学情報学部 地域情報PBL I-IV 報告書\fi}%%
 %
 
 
 \def\signame@DAM{\ifDS@english%
       %IPSJ SIG Technical Report%
-   \else 福知山公立大学情報学部 地域情報PBLプロジェクト報告書\fi}%%
+   \else 福知山公立大学情報学部 地域情報PBL I-IV 報告書\fi}%%
 
-
+\def\ipsj@year{2023-2025}
 
 %%%%%%%%%
 %%%
@@ -171,7 +171,7 @@
       \mbox{指導教員 \quad 橋田光代　准教授}
       \par\vspace{7mm}
       \mbox{\begin{tabular}{rl}
-            提出日 & \submitdate \\
+            提出日 & \submitdaterep \\
             \showReviceDate
          \end{tabular}
       }
