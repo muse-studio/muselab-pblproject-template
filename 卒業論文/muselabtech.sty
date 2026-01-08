@@ -16,11 +16,9 @@
 \newcommand{\cut}[1]{\textcolor{red}{\sout{\textcolor{black}{#1}}}}
 
 % ==============================================
-% 定数
+% 年度・提出日・改訂日の設定
 % ==============================================
-\def\thesisyear{2024}
-\def\submitdate{2025年1月31日}
-\def\revicedate{2025年2月7日}
+\input{../_date} 
 % ==============================================
 % ヘッダ
 % ==============================================
@@ -35,7 +33,7 @@
       %IPSJ SIG Technical Report%
    \else 福知山公立大学情報学部 地域情報PBLプロジェクト報告書\fi}%%
 
-\def\ipsj@year{2023-2025}
+
 
 %%%%%%%%%
 %%%
@@ -170,12 +168,11 @@
          \csname #1authorname\the\count@\endcsname
       }%% end
       \par\vspace{5mm}
-      \mbox{指導教員 \quad 橋田光代}
+      \mbox{指導教員 \quad 橋田光代　准教授}
       \par\vspace{7mm}
       \mbox{\begin{tabular}{rl}
             提出日 & \submitdate \\
-            \\
-            改訂日 & \revicedate \\
+            \showReviceDate
          \end{tabular}
       }
       %

@@ -1,93 +1,103 @@
 
-% muselabtech.sty  (C) 2023 muse-lab, The University of Fukuchiyama
-% Copyright (C) 2023-2024 by Mitsuyo Hashida
+% muselabtech.sty  (C) 2024 muse-lab, The University of Fukuchiyama
+% Copyright (C) 2023-2025 by Mitsuyo Hashida
 
 
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{muselab}
 % [2012/03/26-05/02 v1.00-2.00 muselabTECH.STY]
-[2012/06/01 v3.00 muselabTECH.STY]
+[2012/06/01 v3.00 muselabTECH3.STY]
 
 \RequirePackage{ipsjtech}
 
+\usepackage[normalem]{ulem} % \soutを有効化
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\cut}[1]{\textcolor{red}{\sout{\textcolor{black}{#1}}}}
 
+% ==============================================
+% 定数
+% ==============================================
+\input{../_date}
 % ==============================================
 % ヘッダ
 % ==============================================
 %%
 \def\SIGHead{\ifDS@english%
       %{IPSJ SIG Technical Report}%
-   \else 福知山公立大学情報学部 地域情報PBLプロジェクト報告書\fi}%%
+   \else 福知山公立大学情報学部 地域情報PBL報告書\fi}%%
 %
 
 
 \def\signame@DAM{\ifDS@english%
       %IPSJ SIG Technical Report%
-   \else 福知山公立大学情報学部 地域情報PBLプロジェクト報告書\fi}%%
+   \else 福知山公立大学情報学部 地域情報PBL報告書\fi}%%
 
-\def\ipsj@year{2023-2024}
+\def\ipsj@year{2023-2025}
 
-\ifDS@english
-   \def\ps@muselabTITLEheadings{%
-   \def\@oddhead{\@Ltop%
-      \rlap{\small{%%
-            %%
-            {\HeadfontE{\signame}}%%
-         }}%
+%%%%%%%%%
+%%%
+\def\ps@IPSJTITLEheadings{%
+\def\@oddhead{\@Ltop%
+   \rlap{\small%
+      %%
+      {\HeadfontJ{\signame}}%%
       %%%%%
-      %}}}}%
-      \hfil\@Rtop}%
-   %%%%%
-   \let\@evenhead\@oddhead
-   \def\@oddfoot{\@Lbot%
-   \rlap{%\fontsize{10\Q}{0\h}%
-   {\bothashira%
-   \copyright \ {\@footyear} xxxxx Information Processing Society of Japan%
-   }}%
-   \hfil
-   {\botnomble
-      {\thepage}
-      \@Rbot}%
-   \let\@evenfoot\@oddfoot
-   \let\@mkboth\@gobbletwo
-   }}
-   %%%
-   %%%%%%%%%
-\else
-   %%%%%%%%%
-   %%%
-   \def\ps@muselabTITLEheadings{%
-   \def\@oddhead{\@Ltop%
-      \rlap{\small%
-         %%
-         {\HeadfontJ{\signame}}%%
-         %%%%%
-         {%%
-            \ifDS@abstract\else\fi
-         }}%
-      %%%%
-      \smash{\raisebox{-4mm}{\rlap{%
-               {\DOIHeadfont%%
-                     （2023年度）%
-                  }%
-            }}}%
-      \hfil\@Rtop}%
-   %%
-   \let\@evenhead\@oddhead
-   \def\@oddfoot{\@Lbot%
-   \rlap{%
-   {\bothashira%
-   {\textcopyrighttx} \ {\@footyear} Department of Informatics, The University of Fukuchiyama, Japan%
-   }}%
-   \hfil%
-   {\botnomble%
-      {\thepage}}%
-   \@Rbot}%
-   \let\@evenfoot\@oddfoot
-   \let\@mkboth\@gobbletwo
-   }
-\fi
+      {%%
+         \ifDS@abstract\else\fi
+      }}%
+   %%%%
+   \smash{\raisebox{-4mm}{\rlap{%
+            {\DOIHeadfont%%
+                  （\thesisyear 年度）%
+               }%
+         }}}%
+   \hfil\@Rtop}%
+%%
+\let\@evenhead\@oddhead
+\def\@oddfoot{\@Lbot%
+\rlap{%
+{\bothashira%
+{\textcopyrighttx} \ {\@footyear} Department of Informatics, The University of Fukuchiyama, Japan%
+}}%
+\hfil%
+{\botnomble%
+   {\thepage}}%
+\@Rbot}%
+\let\@evenfoot\@oddfoot
+\let\@mkboth\@gobbletwo
+}
+%%%
+\def\ps@muselabTITLEheadings{%
+\def\@oddhead{\@Ltop%
+   \rlap{\small%
+      %%
+      {\HeadfontJ{\signame}}%%
+      %%%%%
+      {%%
+         \ifDS@abstract\else\fi
+      }}%
+   %%%%
+   \smash{\raisebox{-4mm}{\rlap{%
+            {\DOIHeadfont%%
+                  （\thesisyear 年度）%
+               }%
+         }}}%
+   \hfil\@Rtop}%
+%%
+\let\@evenhead\@oddhead
+\def\@oddfoot{\@Lbot%
+\rlap{%
+{\bothashira%
+{\textcopyrighttx} \ {\@footyear} Department of Informatics, The University of Fukuchiyama, Japan%
+}}%
+\hfil%
+{\botnomble%
+   {\thepage}}%
+\@Rbot}%
+\let\@evenfoot\@oddfoot
+\let\@mkboth\@gobbletwo
+}
 
 \def\@maketitle{%
    \newpage\null
@@ -152,15 +162,19 @@
    \advance\author@count\@ne
    \@whilenum{\count@<\author@count}\do{%
       \mbox{% start
-         福知山公立大学情報学部}\par%
+         福知山公立大学 情報学部情報学科}\par%
       \vspace{5mm}
       \mbox{
          \csname #1authorname\the\count@\endcsname
       }%% end
       \par\vspace{5mm}
-      \mbox{指導教員 \quad 橋田光代}
-      \par\vspace{5mm}
-      \mbox{提出日 \quad 2024年2月9日}\newpage
+      \mbox{指導教員 \quad 橋田光代　准教授}
+      \par\vspace{7mm}
+      \mbox{\begin{tabular}{rl}
+            提出日 & \submitdaterep \\
+            \showReviceDate
+         \end{tabular}
+      }
       %
       \csname #1break@or@oneskip\endcsname
       %
@@ -270,6 +284,13 @@
 \newcommand{\listtablename}{--- 表目次 ---------}
 
 \pagestyle{muselabTITLEheadings}
+
+% ==============================================
+% .bblファイルで挟み込まれる \newblock がエラーを起こす場合の対策
+% ==============================================
+\makeatletter
+\newcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
+\makeatother
 
 \endinput
 

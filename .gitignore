@@ -12,3 +12,5 @@
 .DS_Store
 2023/*
 unused/*
+*.synctex(busy)
+ipsj_*/*

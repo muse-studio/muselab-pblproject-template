@@ -2,8 +2,8 @@
 %\documentclass[submit,techrep,noauthor]{ipsj}
 
 
-%======橋田ゼミ卒論仕様============================
-\usepackage{muselabtech}
+%======PBL報告書 橋田ゼミ仕様============================
+\usepackage{muselabtech3} % PBL報告書３年用スタイルファイル
 \usepackage{tocloft}
 \setcounter{tocdepth}{3}  % ここで目次の深さを設定．3: subsectionまで．4: paragraphまで
 \addtocontents{toc}{\cftpagenumbersoff{subsubsection}}
@@ -21,7 +21,10 @@
 
 \def\Underline{\setbox0\hbox\bgroup\let\\\endUnderline}
 \def\endUnderline{\vphantom{y}\egroup\smash{\underline{\box0}}\\}
-\def\|{\verb|}
+% \def\|{\verb|}
+\usepackage{fancyvrb}
+\renewcommand{\|}{\Verb|}
+\newcommand{\vbarSafe}{\texttt{|}}
 
 % マル○記号を使いたい場合------ 
 %	○×〜 などは機種依存文字のため本文で直接は使えない
@@ -39,7 +42,9 @@
 % ------------------------------------------
 
 % ---- 添削用 ----------------------
-\newcommand{\Erase}[1]{\textcolor{red}{\sout{\textcolor{black}{#1}}}}
+\usepackage{../muselab-correction} % 添削用のマクロを定義しているパッケージ
+% \usepackage[final]{muselab_correction} % 添削終了時は final オプションをつける
+%	このパッケージを使うと，添削用のコメントが出力される
 % ------------------------------------------
 
 % ---- この論文オリジナル ------------
@@ -74,7 +79,7 @@
 \begin{document}
 
 
-\title{\input{author-title}}
+\title{\input{../credit/author-title}}
 
 %\etitle{How to Prepare Your Paper for IPSJ SIG Technical Report \\ (version 2018/10/29)}
 %SIGMUS/EC 予稿には入れるので，英文タイトルは考えておこう（情報学広場に掲載される英文タイトルがこれになる）
@@ -83,7 +88,7 @@
 %	3370 Azahori, Fukuchiyama-shi, Kyoto 620--0886, Japan}
 
 
-\author{\input{author-name}}{\input{author-name-eng}}{FUKU}[]
+\author{\input{../credit/author-name}}{\input{credit/author-name-eng}}{FUKU}[]
 %\author{32045033　酒井　愛実}{Joho Taro}{FUKU}[32045033@fukuchiyama.ac.jp] %SIGMUS/EC 予稿には入れる
 % \author{橋田 光代}{Mitsuyo Hashida}{FUKU}[hashida-mitsuyo@fukuchiyama.ac.jp] %SIGMUS/EC 予稿には入れる
 
@@ -107,11 +112,11 @@
 %\section*{要旨}
 %本研究では，＊＊＊＊の取り組みについて調査する．また，＊＊＊＊について考察する．
 
-\tableofcontents %目次
+% \tableofcontents %目次
 
-\listoffigures %図目次
+% \listoffigures %図目次
 
-\listoftables %表目次
+% \listoftables %表目次
 
 \thispagestyle{empty}
 \clearpage
@@ -121,21 +126,21 @@
 % ==========================================
 % 本文．
 % ==========================================
-\input{muselab-sample}  % 本文は muselab-sample.tex に書く
+\input{report-sample}  % 本文は report-sample.tex に書く
 
 % ==========================================
 % 参考文献
 % ==========================================
 
-\bibliographystyle{muselabunsrt} % SIGMUS/EC予稿の時は ipsjunsrt にする
-\bibliography{muselab-sample} % .bibファイルの名前（Zoteroからエクスポートして作る）
+\bibliographystyle{../muselabunsrt} % SIGMUS/EC予稿の時は ipsjunsrt にする
+\bibliography{../muselab-sample} % .bibファイルの名前（Zoteroからエクスポートして作る）
 
 % ==========================================
-% 付録
+% 付録（必要なら）
 % ==========================================
 \newpage
 \appendix
-
+あいうえお
 \input{appendix-sample} % 付録は appendix-sample.tex に書く
 
 \end{document}
