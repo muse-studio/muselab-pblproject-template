@@ -9,6 +9,7 @@
 \RequirePackage{todonotes}      % コメント用付箋
 \RequirePackage{xcolor}         % 色指定
 \RequirePackage{comment}        % 環境ごと非表示用
+\RequirePackage{graphicx}
 
 %% finalオプション処理
 \newif\if@finalcorrection
@@ -47,4 +48,31 @@
     \newenvironment{gptsample}{\begingroup\color{purple}}{\par\endgroup}
 \fi
 
+% ダミー図形（dummy.png も無い場合に表示）
+\newcommand{\muselab@missingfigure}[1]{%
+    \begingroup
+    \setlength{\fboxsep}{6pt}%
+    \fbox{%
+        \begin{minipage}[c][3cm][c]{0.8\linewidth}
+            \centering\ttfamily
+            Missing figure\\
+            \small\detokenize{#1}
+        \end{minipage}
+    }%
+    \endgroup
+}
+
+% 元の \includegraphics を退避してから上書き
+\let\muselab@orig@includegraphics\includegraphics
+\renewcommand{\includegraphics}[2][]{%
+    \IfFileExists{#2}{%
+        \muselab@orig@includegraphics[#1]{#2}%
+    }{%
+        \IfFileExists{dummy.png}{%
+            \muselab@orig@includegraphics[#1]{dummy.png}%
+        }{%
+            \muselab@missingfigure{#2}%
+        }%
+    }%
+}
 \endinput
