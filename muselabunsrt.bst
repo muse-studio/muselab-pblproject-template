@@ -1,7 +1,8 @@
-% muselabunsrt.bst 28-Oct-10 by Hiroshi Nakashima (ver 3.00)
-% muselabunsrt.bst 15-Jun-07 by Hiroshi Nakashima (ver 2.12)
-% muselabunsrt.bst 30-Jan-02 by Hiroshi Nakashima (ver 2.00)
-% muselabunsrt.bst 28-Dec-93 by Hiroshi Nakashima (ver 1.00)
+% muselabunsrt.bst 25-Jun-24 by Mitsuyo Hashida (ver 3.02)
+% ipsjunsrt.bst 28-Oct-10 by Hiroshi Nakashima (ver 3.00)
+% ipsjunsrt.bst 15-Jun-07 by Hiroshi Nakashima (ver 2.12)
+% ipsjunsrt.bst 30-Jan-02 by Hiroshi Nakashima (ver 2.00)
+% ipsjunsrt.bst 28-Dec-93 by Hiroshi Nakashima (ver 1.00)
 % jssst.bst tomura@etl.go.jp (Satoru Tomura)
 % BibTeX standard bibliography style `jplain'
 	% version 0.10 for JBibTeX versions 0.10 or later, JLaTeX version 2.09.
@@ -520,7 +521,8 @@ FUNCTION {format.doi.url}				% 3.00(1)>>
 	if$
     }
     { format.online output.nonnull
-      "\doi{" doi "}" * *
+      % "\doi{" doi "}" * * 
+      "\doi{\url{https://doi.org/" doi "}}" * * %3.00(2)
     }
   if$							% 3.00(1)<<
 }
